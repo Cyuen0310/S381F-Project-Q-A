@@ -50,6 +50,26 @@ router.post("/logout", (req, res) => {
   });
 });
 
+router.post("/resetPassword", async (req, res) => {
+  try {
+    // Find the user with the provided email in the database
+    const email = await User.findOne({ email: req.body.email });
+
+    if (!email) {
+      // If user is not found, display an error message
+      res.render("resetpw", { error: "Email not registered yet" });
+    } else {
+      // check user email
+      if (user.email == req.body.email) {
+        User.updateOne({email: req.body.email},{$set: {password : req.body.password}}};
+    }
+        res.render("/login", {message , "password has been reset");
+    }
+  } catch (error) {
+    console.error(error);
+    res.render("resetpw", { error: "Cannot reset password" });
+  }
+});
 
   
 

@@ -7,7 +7,7 @@ const User = require("../models/usermd");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.render("login", { error: null });
+  res.render("login", { message: null });
 });
 
 // Login route
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 
     if (!user) {
       // If user is not found, display an error message
-      res.render("login", { error: "No such user" });
+      res.render("login", { message: "No such user" });
     } else {
       // Check if the password matches
       if (user.password == req.body.password) {
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
         res.redirect("/questions");
       } else {
         // Password is incorrect, display an error message
-        res.render("login", { error: "Invalid password" });
+        res.render("login", { message: "Invalid password" });
       }
     }
   } catch (error) {

@@ -26,6 +26,8 @@ router.post("/", async (req, res) => {
         req.session.authenticated = true;
         req.session.userid = user._id;
         req.session.username = user.name;
+        req.session.email = user.email;
+        
 
         res.redirect("/questions");
       } else {

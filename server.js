@@ -12,7 +12,7 @@ const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 const questionRouter = require("./routes/question");
 
-const port = process.env.PORT || 8000; // Corrected the port variable
+const port = process.env.PORT || 8000; 
 const app = express();
 
 connectdb();

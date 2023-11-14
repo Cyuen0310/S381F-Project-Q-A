@@ -69,6 +69,7 @@ app.get("/questions", async (req, res) => {
 app.use("/questions", questionRouter);
 app.use("/login", loginRouter);
 app.use("/", loginRouter);
+app.use("/resetPassword", loginRouter);
 app.use("/register", registerRouter);
 
 app.listen(port, () => console.info(`Server started on port ${port}`));

@@ -1,7 +1,14 @@
 const express = require("express");
 const User = require("../models/usermd");
 
+
 const router = express.Router();
+
+
+const emailformat(email){
+  const format = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return format.test(email);
+}
 
 router.get("/", (req, res) => {
   res.render("register", { message: null });
@@ -24,6 +31,17 @@ router.post("/", async (req, res) => {
     if (!(req.body.password.length >= 8)) {
       return res.render("register", {
         message: "Password must contain at least 8 letters",
+      });
+    }
+    if (existingemail) {
+      return res.render("register", {
+        message: "email has already registered",
+      });
+    }
+
+      if (!(emailformat(email)) {
+      return res.render("register", {
+        message: "Invalid email format",
       });
     }
 

@@ -50,5 +50,8 @@ router.post("/logout", (req, res) => {
   });
 });
 
+router.get('/resetPassword', (req, res) => {
+  
+
 // Export the router for use in other files
 module.exports = router;

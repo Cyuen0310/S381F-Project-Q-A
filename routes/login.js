@@ -65,7 +65,7 @@ router.post("/resetPassword", async (req, res) => {
     } else {
       // check user email
       if (user.email == req.body.email) {
-        User.updateOne( {email: req.body.email} , {$set: {password : req.body.password}  });
+        await User.updateOne( {email: req.body.email} , {$set: {password : req.body.password}  });
     }
         res.render("/login", {message: "password has been reset"});
     }

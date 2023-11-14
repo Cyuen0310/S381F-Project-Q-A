@@ -51,7 +51,7 @@ router.post("/logout", (req, res) => {
 });
 
 router.get("/resetPassword", async (req, res) => {
-  res.render('register');
+  res.render('resetpw' , {message : null});
 }
 router.post("/resetPassword", async (req, res) => {
   try {
@@ -60,7 +60,7 @@ router.post("/resetPassword", async (req, res) => {
 
     if (!email) {
       // If user is not found, display an error message
-      res.render("resetpw", { error: "Email not registered yet" });
+      res.render("resetpw", { message: "Email not registered yet" });
     } else {
       // check user email
       if (user.email == req.body.email) {
@@ -70,7 +70,7 @@ router.post("/resetPassword", async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.render("resetpw", { error: "Cannot reset password" });
+    res.render("resetpw", { message: "Cannot reset password" });
   }
 });
 

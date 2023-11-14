@@ -50,6 +50,9 @@ router.post("/logout", (req, res) => {
   });
 });
 
+router.get("/resetPassword", async (req, res) => {
+  res.render('register');
+}
 router.post("/resetPassword", async (req, res) => {
   try {
     // Find the user with the provided email in the database

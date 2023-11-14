@@ -57,9 +57,9 @@ router.get("/resetPassword", async (req, res) => {
 router.post("/resetPassword", async (req, res) => {
   try {
     // Find the user with the provided email in the database
-    const email = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email });
 
-    if (!email) {
+    if (!user) {
       // If user is not found, display an error message
       res.render("resetpw", { message: "Email not registered yet" });
     } else {

@@ -19,7 +19,7 @@
       <div>
         <form action="/resetPassword" method="post">
           <% if (message) { %>
-          <div class="alert alert-danger mt-3"><%= error %></div>
+          <div class="alert alert-danger mt-3"><%= message %></div>
           <% } %>
           <div class="form-group">
             <label for="name">RegisterEmail:</label>

@@ -1,5 +1,5 @@
 
-Q and A platform
+Q&A platform
 Group 42
 
 Fung Yin Ho (13163477)

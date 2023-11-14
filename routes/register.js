@@ -5,7 +5,7 @@ const User = require("../models/usermd");
 const router = express.Router();
 
 
-const emailformat(email){
+function emailformat(email){
   const format = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return format.test(email);
 }

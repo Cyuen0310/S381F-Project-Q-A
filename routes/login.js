@@ -52,7 +52,8 @@ router.post("/logout", (req, res) => {
 
 router.get("/resetPassword", async (req, res) => {
   res.render('resetpw' , {message : null});
-};
+});
+
 router.post("/resetPassword", async (req, res) => {
   try {
     // Find the user with the provided email in the database

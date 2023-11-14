@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
     res.redirect("/login");
   } catch (error) {
     console.error(error);
-    res.redirect("/register?error=cannot_register");
+    res.render("/register?error=cannot_register",{message : cannot register});
   }
 });
 

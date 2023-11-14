@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
       });
     }
 
-      if (!(emailformat(email)) {
+      if (!(emailformat(req.body.email)) {
       return res.render("register", {
         message: "Invalid email format",
       });
@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
     res.redirect("/login");
   } catch (error) {
     console.error(error);
-    res.render("/register?error=cannot_register",{message : cannot register});
+    res.render("/register?error=cannot_register",{message : 'cannot register'});
   }
 });
 

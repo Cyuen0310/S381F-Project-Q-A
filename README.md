@@ -1,4 +1,3 @@
-
 Q&A platform
 Group 42
 Name:

@@ -13,46 +13,50 @@
   </head>
 
   <body>
-    <div
-      class="container d-flex justify-content-center align-items-center min-vh-100"
-    >
-      <div>
-        <form action="/login" method="post">
-          <% if (message) { %>
-          <div class="alert alert-danger mt-3"><%= message %></div>
-          <% } %>
-          <div class="form-group">
-            <label for="name">Username:</label>
-            <input
-              type="text"
-              class="form-control"
-              name="name"
-              id="name"
-              placeholder="Username"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Login</button>
-        </form>
 
-        <form id="register-form" action="/register" method="GET">
-          <button type="submit" class="btn btn-warning">Register</button>
-        </form>
-        <form id="resetpassword-form" action="/resetPassword" method="GET">
-          <button type="submit" class="btn btn-warning">resetpassword</button>
-        </form>
+
+
+      <div class = "d-flex justify-content-center align-items-center min-vh-100">
+          <form action="/login" method="post">
+            <% if (message) { %>
+            <div class="alert alert-danger mt-3"><%= message %></div>
+            <% } %>
+
+            <div class="form-group">
+              <label for="name">Username:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                id="name"
+                placeholder="Username"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <div class="d-flex justify-content-between mb-4">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+
+          <div class="d-flex justify-content-between mb-4">
+            <form id="register-form" action="/register" method="GET">
+              <button type="submit" class="btn btn-warning">Register</button>
+            </form>
+          </div>
+
       </div>
-    </div>
   </body>
 </html>

@@ -13,58 +13,64 @@
   </head>
 
   <body>
-    <div
-      class="container d-flex justify-content-center align-items-center min-vh-100"
-    >
-      <div class="">
-        <form action="/register" method="post">
-          <% if (message) { %>
-          <div class="alert alert-danger mt-3"><%= message %></div>
-          <% } %>
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input
-              pattern="[A-Za-z0-9]+"
-              type="text"
-              class="form-control"
-              name="name"
-              id="name"
-              placeholder="Username"
-              required
-            />
+
+
+     <div class = "d-flex justify-content-center align-items-center min-vh-100">
+
+        <div>
+
+          <form action="/register" method="post">
+            <% if (message) { %>
+            <div class="alert alert-danger mt-3"><%= message %></div>
+            <% } %>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input
+                pattern="[A-Za-z0-9]+"
+                type="text"
+                class="form-control"
+                name="name"
+                id="name"
+                placeholder="Username"
+                required/>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required/>
           </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              placeholder="Password"
-              required
-            />
-          
-         </div>
-          <div class="form-group">
-            <label for="Email">Email:</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              placeholder="Email"
-              required
-            />
-          </div>
+
+            <div class="form-group">
+              <label for="Email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required/>
+            </div>
+            
+            <div class="d-flex justify-content-between mb-4">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+
+        <div class="d-flex justify-content-between mb-4">
+          <form id="login-form" action="/login" method="GET">
+            <button type="submit" class="btn btn-warning">
+              Already register?
+            </button>
+          </form>
         </div>
-          <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-        <form id="login-form" action="/login" method="GET">
-          <button type="submit" class="btn btn-warning">
-            Already register?
-          </button>
-        </form>
+
+        </div>
       </div>
-    </div>
   </body>
 </html>

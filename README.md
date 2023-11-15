@@ -8,8 +8,22 @@ Chan Chi Ho(13340738)
 
 Application link: https://qanda-1osh.onrender.com/
 ********************************************
+#Introduction
+
+********************************************
 #Login
-Through the register function, each user can apply a account to access the Q&A system by entering their email, username and password. User need to input their username and password to login.
+
+#Register a account
+Input the name, password, email at the blank and press the register button.
+
+##Go to the Login page
+After register, broswer will return to the login page.
+
+###Input the username and password
+Input the username and password at the username and password blank.
+
+####Press the Login button
+Press the login button and login the Q&A system.
 
 Default account:
 [
@@ -23,6 +37,11 @@ After successful login, userid is stored in session.
 ********************************************
 # Logout
 Each user can log out their account by clicking the logout button at the home page.
+#Back to main page
+If user are inside one of the question, press back to return the main page.
+
+#Press the Logout button
+Press the logout button, clean the cockie and back to the login page.
 
 ********************************************
 # CRUD service

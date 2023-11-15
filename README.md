@@ -11,6 +11,14 @@ Application link: https://qanda-1osh.onrender.com/
 #Login
 Through the register function, each user can apply a account to access the Q&A system by entering their email, username and password. User need to input their username and password to login.
 
+Default account:
+[
+	{userid: abc, password: 12345678},
+	{userid: user, password: 87412365},
+	{suerid: def987, password: ab654321}
+
+]
+
 After successful login, userid is stored in session.
 ********************************************
 # Logout

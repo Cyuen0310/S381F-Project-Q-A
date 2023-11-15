@@ -29,18 +29,14 @@
 
       <div class="d-flex justify-content-between mb-4">
       <a href="/questions/new" class="btn btn-success">Ask question</a>
-      </div>
-      <div class="d-flex justify-content-between mb-4">
-        <form id="logout-form" action="/logout" method="POST">
-          <button type="submit" class="btn btn-warning">Logout</button>
-        </form>
-      </div>
-      <div class="d-flex justify-content-between mb-4">
-        <form id="resetpassword-form" action="/resetPassword" method="GET">
+      <form id="logout-form" action="/logout" method="POST">
+        <button type="submit" class="btn btn-warning">Logout</button>
+      </form>
+      <form id="resetpassword-form" action="/resetPassword" method="GET">
           <button type="submit" class="btn btn-warning">resetpassword</button>
-        </form>
+      </form>
       </div>
-    </div>
+      
     
       <% questions.forEach(question => { %>
       <div class="card mt-4">

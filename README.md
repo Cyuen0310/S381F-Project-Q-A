@@ -15,7 +15,7 @@ Default account:
 [
 	{userid: abc, password: 12345678},
 	{userid: user, password: 87412365},
-	{suerid: def987, password: ab654321}
+	{userid: def987, password: ab654321}
 
 ]
 

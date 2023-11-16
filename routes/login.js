@@ -1,43 +1,41 @@
-// Import required modules
 const express = require("express");
 
 const User = require("../models/usermd");
 
-// Create an instance of the Express router
 const router = express.Router();
 
 router.get("/", (req, res) => {
   res.render("login", { message: null });
 });
 
-// Login route
+// Login 
 router.post("/", async (req, res) => {
   try {
-    // Find the user with the provided email in the database
+    // Find user with the email
     const user = await User.findOne({ name: req.body.name });
 
     if (!user) {
-      // If user is not found, display an error message
+      // If user not found
       res.render("login", { message: "No such user" });
     } else {
-      // Check if the password matches
+      // Check the password 
       if (user.password == req.body.password) {
-        // Password is correct, login successful
+        // Save the user
         req.session.authenticated = true;
         req.session.userid = user._id;
         req.session.username = user.name;
         req.session.email = user.email;
-        
-
+      
         res.redirect("/questions");
+
       } else {
-        // Password is incorrect, display an error message
+        // Password is incorrect
         res.render("login", { message: "Invalid password" });
       }
     }
   } catch (error) {
     console.error(error);
-    res.render("login", { error: "An error occurred" });
+    res.render("login", { message: "An error occurred" });
   }
 });
 
@@ -56,14 +54,12 @@ router.get("/resetPassword", async (req, res) => {
 
 router.post("/resetPassword", async (req, res) => {
   try {
-    // Find the user with the provided email in the database
+    // Find user with email 
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-      // If user is not found, display an error message
       res.render("resetpw", { message: "Email not registered yet" });
     } else {
-      // check user email
       if (user.email == req.body.email) {
         await User.updateOne( {email: req.body.email} , {$set: {password : req.body.password}  });
     }
@@ -75,7 +71,4 @@ router.post("/resetPassword", async (req, res) => {
   }
 });
 
-  
-
-// Export the router for use in other files
 module.exports = router;

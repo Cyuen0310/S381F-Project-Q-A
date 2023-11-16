@@ -29,26 +29,30 @@ router.post("/", async (req, res) => {
   }
 });
 
+
 router.delete("/:id", async (req, res) => {
   try {
-    // Find the questionID
     const question = await Question.findById(req.params.id);
 
-    // Retrieve all the commentID refer to that question
     const comments = question.comments;
 
-    // Delete the question
-    await Question.findByIdAndDelete(req.params.id);
+    const confirm = confirm("Are you sure you want to delete this question?");
 
-    // Delete the comments refer to that question
-    await Comment.deleteMany({ _id: { $in: comments } });
 
-    res.redirect("/questions");
+    if(confirm) {
+      await Question.findByIdAndDelete(req.params.id);
+
+      await Comment.deleteMany({ _id: { $in: comments } });
+
+      res.redirect("/questions");
+    }
+    else {
+      res.redirect("/questions");
+    }
+
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .send("An error occurred while deleting the question and its comments.");
+    res.redirect('/questions/index/?error=cannot_delete_question');
   }
 });
 

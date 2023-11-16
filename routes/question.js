@@ -40,13 +40,12 @@ router.delete("/:id", async (req, res) => {
 
     const comments = question.comments;
 
-    if(window.confirm("Are you sure you want to delete this question?")) {
-      await Question.findByIdAndDelete(req.params.id);
+    await Question.findByIdAndDelete(req.params.id);
 
-      await Comment.deleteMany({ _id: { $in: comments } });
+    await Comment.deleteMany({ _id: { $in: comments } });
 
-      res.render("questions/index");
-    }
+    res.render("questions/index");
+    
   } catch (error) {
     console.error(error);
     res.redirect('/questions/index/?error=cannot_delete_question');

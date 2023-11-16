@@ -47,7 +47,7 @@
           </div>
           <a href="questions/<%= question.slug %>" class="btn btn-primary">Details</a>
           <% if (sessionUser==question.questionername){%>
-            <form action="/questions/<%= question.id %>?_method=DELETE" method="POST" class="d-inline">
+            <form action="/questions/<%= question.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Sure to delete this question?');" class="d-inline">
               <button type="submit" class="btn btn-danger">Delete</button>
             </form>
             <% } %>

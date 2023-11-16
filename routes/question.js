@@ -9,6 +9,10 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  if (!req.session.authenticated) {
+    return res.render("login", { message: "Please login first" })
+  }
+  
   const user = await User.findOne({ name: req.session.username });
   try {
     // Create a new question

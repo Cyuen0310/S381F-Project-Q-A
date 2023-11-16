@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
   res.render("login", { message: null });
 });
 
-// Login 
 router.post("/", async (req, res) => {
   try {
     // Find user with the email
@@ -25,8 +24,6 @@ router.post("/", async (req, res) => {
         req.session.userid = user._id;
         req.session.username = user.name;
         req.session.email = user.email;
-      
-        res.redirect("/questions");
 
       } else {
         // Password is incorrect

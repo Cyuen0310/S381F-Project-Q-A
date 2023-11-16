@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const session = require("express-session");
-
+const cookieParser = require('cookie-parser')
 const Question = require("./models/questionmd");
 const Comment = require("./models/commentsmd");
 const User = require("./models/usermd");
@@ -24,6 +24,8 @@ app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "/public/css")); // Corrected the static file paths
 app.use("/js", express.static(__dirname + "/public/js"));
 app.use("/img", express.static(__dirname + "/public/img"));
+
+app.use(cookieParser());
 app.use(
   session({
     secret: secureRandomString({ length: 32 }),

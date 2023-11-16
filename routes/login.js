@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
         req.session.userid = user._id;
         req.session.username = user.name;
         req.session.email = user.email;
-        res.redirect("/questions/");
+        res.redirect("/questions");
       } else {
         res.render("login", { message: "Invalid password" });
       }

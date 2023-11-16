@@ -45,7 +45,7 @@
           <div class="card-text mb-2">
             Description: <%= question.description %>
           </div>
-          <a href="questions/<%= question.slug %>" class="btn btn-primary">Details</a>
+          <a href="/<%= question.slug %>" class="btn btn-primary">Details</a>
           <% if (sessionUser==question.questionername){%>
             <form action="/questions/<%= question.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Sure to delete this question?');" class="d-inline">
               <button type="submit" class="btn btn-danger">Delete</button>

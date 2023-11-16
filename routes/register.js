@@ -4,12 +4,6 @@ const User = require("../models/usermd");
 
 const router = express.Router();
 
-
-function emailformat(email){
-  const format = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return format.test(email);
-}
-
 router.get("/", (req, res) => {
   res.render("register", { message: null });
 });
@@ -35,13 +29,6 @@ router.post("/", async (req, res) => {
         message: "email has already registered",
       });
     }
-
-      if (!(emailformat(req.body.email))){
-      return res.render("register", {
-        message: "Invalid email format",
-      });
-    }
-
     const user = new User({
       name: req.body.name,
       password: req.body.password,

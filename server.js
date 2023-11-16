@@ -60,7 +60,7 @@ app.get("/questions", async (req, res) => {
       const questions = await Question.find(filter).sort({ createdAt: "desc" });
       res.render("questions/index", { questions, searchQuery, sessionUser });
     } else {
-      res.redirect("/questions");
+      res.redirect("/login");
     }
   } catch (error) {
     console.error(error);

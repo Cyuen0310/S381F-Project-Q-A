@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
   if (!req.session.authenticated) {
     return res.render("login", { message: "Please login first" })
   }
-  
+
   const user = await User.findOne({ name: req.session.username });
   try {
     // Create a new question
@@ -40,10 +40,10 @@ router.delete("/:id", async (req, res) => {
 
     const comments = question.comments;
 
-    const confirmDelete = confirm("Are you sure you want to delete this question?");
+    
 
 
-    if(confirmDelete) {
+    if(window.confirm("Are you sure you want to delete this question?")) {
       await Question.findByIdAndDelete(req.params.id);
 
       await Comment.deleteMany({ _id: { $in: comments } });

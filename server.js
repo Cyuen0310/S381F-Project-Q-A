@@ -55,7 +55,6 @@ app.get("/questions", async (req, res) => {
           ],
         };
       }
-
       const sessionUser = req.session.username;
       const questions = await Question.find(filter).sort({ createdAt: "desc" });
       res.render("questions/index", { questions, searchQuery, sessionUser });

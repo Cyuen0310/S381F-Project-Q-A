@@ -36,10 +36,10 @@ router.delete("/:id", async (req, res) => {
 
     const comments = question.comments;
 
-    const confirm = confirm("Are you sure you want to delete this question?");
+    const confirmDelete = confirm("Are you sure you want to delete this question?");
 
 
-    if(confirm) {
+    if(confirmDelete) {
       await Question.findByIdAndDelete(req.params.id);
 
       await Comment.deleteMany({ _id: { $in: comments } });

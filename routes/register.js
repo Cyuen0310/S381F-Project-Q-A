@@ -16,11 +16,8 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    // Check if the email is already registered
     const existingUser = await User.findOne({ name: req.body.name });
     const existingemail = await User.findOne({ email: req.body.email });
-
-    
 
     if (existingUser) {
       return res.render("register", {
@@ -45,14 +42,12 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Create a new user
     const user = new User({
       name: req.body.name,
       password: req.body.password,
       email : req.body.email,
     });
 
-    // Save the user to the database
     await user.save();
 
     res.redirect("/login");

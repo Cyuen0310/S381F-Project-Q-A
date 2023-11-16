@@ -10,23 +10,18 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    // Find user with the email
     const user = await User.findOne({ name: req.body.name });
 
     if (!user) {
-      // If user not found
       res.render("login", { message: "No such user" });
-    } else {
-      // Check the password 
+    } else { 
       if (user.password == req.body.password) {
-        // Save the user
         req.session.authenticated = true;
         req.session.userid = user._id;
         req.session.username = user.name;
         req.session.email = user.email;
         res.redirect("/questions/");
       } else {
-        // Password is incorrect
         res.render("login", { message: "Invalid password" });
       }
     }
@@ -50,8 +45,7 @@ router.get("/resetPassword", async (req, res) => {
 });
 
 router.post("/resetPassword", async (req, res) => {
-  try {
-    // Find user with email 
+  try { 
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {

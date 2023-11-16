@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
 app.use(express.static("public"));
-app.use("/css", express.static(__dirname + "/public/css")); // Corrected the static file paths
+app.use("/css", express.static(__dirname + "/public/css")); 
 app.use("/js", express.static(__dirname + "/public/js"));
 app.use("/img", express.static(__dirname + "/public/img"));
 
@@ -63,7 +63,7 @@ app.get("/questions", async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.render("error"); // Display an error page if an error occurs
+    res.render("error"); 
   }
 });
 

@@ -56,7 +56,6 @@ router.post("/:slug/addcomment", async (req, res) => {
   const slug = req.params.slug;
   const comment = req.body.comment;
   try {
-    // Find the question with the specified slug
     const question = await Question.findOne({ slug });
 
     if (question == null) {
@@ -64,7 +63,6 @@ router.post("/:slug/addcomment", async (req, res) => {
     }
 
     const user = await User.findOne({ name: req.session.username });
-    // Create a new comment
     let Newcomment = new Comment({
       comment: comment,
       question: question._id,
@@ -73,10 +71,8 @@ router.post("/:slug/addcomment", async (req, res) => {
       respondentname: req.session.username,
     });
 
-    // Save the comment
     await Newcomment.save();
 
-    // Add the comment to the question's comments array
     question.comments.push(Newcomment._id);
     await question.save();
 

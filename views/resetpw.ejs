@@ -23,12 +23,13 @@
           <div class="alert alert-danger mt-3"><%= message %></div>
           <% } %>
           <div class="form-group">
-            <label for="name">RegisterEmail:</label>
+            <label for="email">RegisterEmail:</label>
             <input
               type="text"
               class="form-control"
               name="email"
               id="email"
+              pattern = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
               placeholder="RegisterEmail"
               required
             />

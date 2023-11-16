@@ -44,7 +44,7 @@ router.delete("/:id", async (req, res) => {
 
     await Comment.deleteMany({ _id: { $in: comments } });
 
-    res.render("questions/index");
+    res.redirect("/questions");
     
   } catch (error) {
     console.error(error);

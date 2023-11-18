@@ -10,7 +10,7 @@ Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
 # Login
 
-To login the Q&A platform, please follow these steps:
+To login the Q&A platform, follow these steps:
 
 1. Register a account
 > Input the name, password, email at the blank and press the register button.
@@ -35,7 +35,7 @@ Default account:
 ********************************************
 # Logout
 
-To logout the account, please follow these steps:
+To logout the account, follow these steps:
 
 1. Back to main page
 > If user are inside one of the question, press back to return the main page.

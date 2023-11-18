@@ -23,12 +23,8 @@ router.post("/", async (req, res) => {
       questionername: req.session.username,
     });
 
-    if (await Question.findOne({ title: req.body.title }))
-    {
-      return res.render("questions/new", {
-        question: req.body,
-        message: "Title already exists",
-      });
+    if (await Question.findOne({ title: req.body.title })){
+      return res.render("questions/new", {question: req.body, message: "Title already exists",});
     }
 
     // Save the question

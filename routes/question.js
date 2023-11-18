@@ -65,7 +65,7 @@ router.post("/:slug/addcomment", async (req, res) => {
     const user = await User.findOne({ name: req.session.username });
     let Newcomment = new Comment({
       comment: comment,
-      question: question._id,
+      questionid: question._id,
       createdAt: new Date(),
       respondent: user._id,
       respondentname: req.session.username,

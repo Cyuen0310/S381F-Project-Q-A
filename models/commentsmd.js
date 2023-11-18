@@ -16,6 +16,10 @@ const commentSchema = new mongoose.Schema({
   respondentname: {
     type: String,
   },
+  questionid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Question",
+  },
 });
 
 module.exports = mongoose.model("Comment", commentSchema);

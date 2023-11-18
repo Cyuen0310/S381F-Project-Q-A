@@ -15,7 +15,6 @@ router.post("/", async (req, res) => {
 
   const user = await User.findOne({ name: req.session.username });
   try {
-    // Create a new question
     let question = new Question({
       title: req.body.title,
       description: req.body.description,
@@ -23,10 +22,9 @@ router.post("/", async (req, res) => {
       questionername: req.session.username,
     });
 
-    // Save the question
     question = await question.save();
 
-    res.redirect(`/questions/${question.slug}`);
+    res.redirect(`/questions/${question.slug}` , {message: null });
   } catch (error) {
     console.error(error);
     res.render("questions/new", { question: req.body } , {message: "duplicate  Title"});

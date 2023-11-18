@@ -8,10 +8,9 @@
 
 Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
-# Introduction
-	This is a Question and answer platform, user can ask and answer the question here, they can also search the question to see is there any solved problem to save the time of wait for someone to answer the question. 
-********************************************
 # Login
+
+To login the Q&A platform, please follow these steps:
 
 1. Register a account
 > Input the name, password, email at the blank and press the register button.
@@ -33,11 +32,11 @@ Default account:
 
 ]
 
-After successful login, userid is stored in session.
 ********************************************
 # Logout
 
-Each user can log out their account by clicking the logout button at the home page.
+To logout the account, please follow these steps:
+
 1. Back to main page
 > If user are inside one of the question, press back to return the main page.
 

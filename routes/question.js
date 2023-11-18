@@ -90,7 +90,7 @@ router.get("/:slug", async (req, res) => {
       return res.redirect("/questions/index");
     }
 
-    res.render("questions/detail", { question });
+    res.render("questions/detail", { question } , { message: null });
   } catch (error) {
     console.error(error);
     res.redirect("/questions/index");

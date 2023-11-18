@@ -14,6 +14,11 @@
   </head>
   <body>
     <div class="container">
+          <% if (message) { %>
+            <div class="alert alert-danger mt-3">
+              <%= message %>
+            </div>
+            <% } %>
       <h1 class="mb-1">Title: <%= question.title %></h1>
 
       <div class="test-muted mb-2">

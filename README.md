@@ -13,35 +13,36 @@ Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
 # Login
 
-### Register a account
-Input the name, password, email at the blank and press the register button.
+1. Register a account
+> Input the name, password, email at the blank and press the register button.
 
-### Go to the Login page
-After register, broswer will return to the login page.
+2. Go to the Login page
+> After register, broswer will return to the login page.
 
-### Input the username and password
-Input the username and password at the username and password blank.
+3. Input the username and password
+> Input the username and password at the username and password blank.
 
-### Press the Login button
-Press the login button and login the Q&A system.
+4. Press the Login button
+> Press the login button and login the Q&A system.
 
 Default account:
 [
 	{userid: abc, password: 12345678},
 	{userid: user, password: 87412365},
-	{userid: def987, password: ab654321}
+        {userid: def987, password: ab654321}
 
 ]
 
 After successful login, userid is stored in session.
 ********************************************
 # Logout
-Each user can log out their account by clicking the logout button at the home page.
-## Back to main page
-If user are inside one of the question, press back to return the main page.
 
-## Press the Logout button
-Press the logout button, clean the cockie and back to the login page.
+Each user can log out their account by clicking the logout button at the home page.
+1. Back to main page
+> If user are inside one of the question, press back to return the main page.
+
+2. Press the Logout button
+> Press the logout button, clean the cockie and back to the login page.
 
 ********************************************
 # CRUD service

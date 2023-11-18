@@ -5,7 +5,7 @@ const User = require("../models/usermd");
 const router = express.Router();
 
 router.get("/new", (req, res) => {
-  res.render("questions/new", { question: new Question() } , {message: null });
+  res.render("questions/new", { question: new Question() , message : null });
 });
 
 router.post("/", async (req, res) => {
@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
 
   const user = await User.findOne({ name: req.session.username });
   try {
+    // Create a new question
     let question = new Question({
       title: req.body.title,
       description: req.body.description,
@@ -22,12 +23,21 @@ router.post("/", async (req, res) => {
       questionername: req.session.username,
     });
 
+    if (await Question.findOne({ title: req.body.title }))
+    {
+      return res.render("questions/new", {
+        question: req.body,
+        message: "Title already exists",
+      });
+    }
+
+    // Save the question
     question = await question.save();
 
-    res.redirect(`/questions/${question.slug}` , {message: null });
+    res.redirect(`/questions/${question.slug}`);
   } catch (error) {
     console.error(error);
-    res.render("questions/new", { question: req.body } , {message: "duplicate  Title"});
+    res.render("questions/new", { question: req.body } ,);
   }
 });
 
@@ -90,7 +100,7 @@ router.get("/:slug", async (req, res) => {
       return res.redirect("/questions/index");
     }
 
-    res.render("questions/detail", { question } , { message: null });
+    res.render("questions/detail", { question });
   } catch (error) {
     console.error(error);
     res.redirect("/questions/index");

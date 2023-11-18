@@ -22,11 +22,7 @@
     </div>
 
 <div class="d-flex justify-content-between mb-4">
-      <% if (message) { %>
-        <div class="alert alert-danger mt-3">
-          <%= message %>
-        </div>
-        <% } %>
+  
   <a href="/questions/new" class="btn btn-success">Ask question</a>
   <form id="logout-form" action="/logout" method="POST" style="display: inline;">
     <button type="submit" class="btn btn-warning">Logout</button>

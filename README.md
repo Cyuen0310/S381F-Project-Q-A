@@ -45,58 +45,56 @@ Press the logout button, clean the cockie and back to the login page.
 
 ********************************************
 # CRUD service
--Creating a Question
+## Creating a Question
 To create a new question, follow these steps:
 
-#Click on the "Ask question" button.
-#Fill in the title and description of your question.
-	#Title: The title should be a unique value.
-	#Description: Provide a detailed description of your question.
-#Click on the "Submit" button to create the question.
-#Verify that the question appears on the website's question list.
+1. Click on the "Ask question" button.
+2.  Fill in the title and description of your question. 
+	> Title: The title should be a unique value.
+
+	> Description: Provide a detailed description of your question.
+3. Click on the "Submit" button to create the question.
+4. Verify that the question appears on the website's question list.
 
 ********************************************
-# CRUD service
--Adding a Comment
+## Adding a Comment
 To add a comment to a question, perform the following steps:
 
-Click on the "Details" button on the question details page.
-Scroll down to the comment section.
-Enter your comment in the provided input field.
-Click on the "Submit" button to add the comment.
-Verify that the comment appears below the question.
+1. Click on the "Details" button on the question details page.
+2. Scroll down to the comment section.
+3. Enter your comment in the provided input field.
+4. Click on the "Submit" button to add the comment.
+5. Verify that the comment appears below the question.
 
 
 ********************************************
-# CRUD service
--Updating account password
+## Updating account password
 To update the account password, perform the following steps:
 
-Click on the "Reset Password" button.
-Enter your registered Email and the new password.
-	Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
-Click on the "Reset" button to submit your new password.
-You will be redirected to the login page.
-Verify that the new password is valid when logging in.
+1. Click on the "Reset Password" button.
+2. Enter your registered Email and the new password. 
+	> Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
+
+3. Click on the "Reset" button to submit your new password.
+4. You will be redirected to the login page.
+5. Verify that the new password is valid when logging in.
 
 ********************************************
-# CRUD service
--Deleting a Question
+## Deleting a Question
 To delete your question, follow these instructions:
 
-Locate the question you want to delete on the question list or detail page.
-Click on the delete button.
-Confirm the deletion when prompted.
-Verify that the question and associated comments are no longer visible on the website.
+1. Locate the question you want to delete on the question list or detail page.
+2. Click on the delete button.
+3. Confirm the deletion when prompted.
+4. Verify that the question and associated comments are no longer visible on the website.
 
 ********************************************
-# CRUD service
--Searching specified question by Title or Questioner
+## Searching specified question by Title or Questioner
 To search for questions by title or questioner, follow these steps:
 
-Enter your search query in the search bar.
-Click on the "Search" button or press Enter.
-The page will display the questions that match the search query in the title or questioner fields.
+1. Enter your search query in the search bar.
+2. Click on the "Search" button or press Enter.
+3. The page will display the questions that match the search query in the title or questioner fields.
 
 ********************************************
 # Restful

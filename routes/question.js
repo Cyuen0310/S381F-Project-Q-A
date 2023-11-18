@@ -5,7 +5,7 @@ const User = require("../models/usermd");
 const router = express.Router();
 
 router.get("/new", (req, res) => {
-  res.render("questions/new", { question: new Question() });
+  res.render("questions/new", { question: new Question() } , {message: null });
 });
 
 router.post("/", async (req, res) => {
@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
     res.redirect(`/questions/${question.slug}`);
   } catch (error) {
     console.error(error);
-    res.render("questions/new", { question: req.body });
+    res.render("questions/new", { question: req.body } , {message: "duplicate  Title"});
   }
 });
 

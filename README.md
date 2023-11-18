@@ -22,7 +22,7 @@ To login the Q&A platform, follow these steps:
 > Input the username and password at the username and password blank.
 
 4. Press the Login button
-> Press the login button and login the Q&A system.
+> Press the login button and login the Q&A platform.
 
 Default account:
 

@@ -50,6 +50,8 @@ To create a new question, follow these steps:
 
 Click on the "Ask question" button.
 Fill in the title and description of your question.
+	Title: The title should be a unique value.
+	Description: Provide a detailed description of your question.
 Click on the "Submit" button to create the question.
 Verify that the question appears on the website's question list.
 
@@ -72,6 +74,7 @@ To update the account password, perform the following steps:
 
 Click on the "Reset Password" button.
 Enter your registered Email and the new password.
+	Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
 Click on the "Reset" button to submit your new password.
 You will be redirected to the login page.
 Verify that the new password is valid when logging in.
@@ -85,6 +88,15 @@ Locate the question you want to delete on the question list or detail page.
 Click on the delete button.
 Confirm the deletion when prompted.
 Verify that the question and associated comments are no longer visible on the website.
+
+********************************************
+# CRUD service
+-Searching specified question by Title or Questioner
+To search for questions by title or questioner, follow these steps:
+
+Enter your search query in the search bar.
+Click on the "Search" button or press Enter.
+The page will display the questions that match the search query in the title or questioner fields.
 
 ********************************************
 # Restful

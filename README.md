@@ -60,24 +60,24 @@ To create a new question, follow these steps:
 -Adding a Comment
 To add a comment to a question, perform the following steps:
 
-#Click on the "Details" button on the question details page.
-#Scroll down to the comment section.
-#Enter your comment in the provided input field.
-#Click on the "Submit" button to add the comment.
-#Verify that the comment appears below the question.
+Click on the "Details" button on the question details page.
+Scroll down to the comment section.
+Enter your comment in the provided input field.
+Click on the "Submit" button to add the comment.
+Verify that the comment appears below the question.
 
 
 ********************************************
 # CRUD service
 -Updating account password
-#To update the account password, perform the following steps:
+To update the account password, perform the following steps:
 
-#Click on the "Reset Password" button.
-#Enter your registered Email and the new password.
-	#Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
-#Click on the "Reset" button to submit your new password.
-#You will be redirected to the login page.
-#Verify that the new password is valid when logging in.
+Click on the "Reset Password" button.
+Enter your registered Email and the new password.
+	Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
+Click on the "Reset" button to submit your new password.
+You will be redirected to the login page.
+Verify that the new password is valid when logging in.
 
 ********************************************
 # CRUD service

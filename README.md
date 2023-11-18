@@ -1,17 +1,17 @@
-Q&A platform
-Group 42
-Name:
-	Fung Yin Ho (13163477)
-	Kwok Wing Yan(13167777)
-	Chan Sze Yuen(13342990)
-	Chan Chi Ho(13340738)
+# Q&A Platform
+
+## Group 42
+- Fung Yin Ho (13163477)
+- Kwok Wing Yan (13167777)
+- Chan Sze Yuen (13342990)
+- Chan Chi Ho (13340738)
 
 Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
 #Introduction
 	This is a Question and answer platform, user can ask and answer the question here, they can also search the question to see is there any solved problem to save the time of wait for someone to answer the question. 
-********************************************
-#Login
+---
+##Login
 
 #Register a account
 Input the name, password, email at the blank and press the register button.

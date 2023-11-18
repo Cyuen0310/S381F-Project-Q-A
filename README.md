@@ -25,12 +25,12 @@ To login the Q&A platform, please follow these steps:
 > Press the login button and login the Q&A system.
 
 Default account:
-[
-	{userid: abc, password: 12345678},
-	{userid: user, password: 87412365},
-        {userid: def987, password: ab654321}
 
-]
+> {userid: abc, password: 12345678}
+
+> {userid: user, password: 87412365}
+
+> {userid: def987, password: ab654321}
 
 ********************************************
 # Logout

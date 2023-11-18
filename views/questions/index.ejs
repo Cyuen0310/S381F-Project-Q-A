@@ -13,15 +13,15 @@
 <body>
   <div class="container">
     <h1 class="d-flex justify-content-center mb-4">Q&A</h1>
-
-    <div class="d-flex justify-content-right mb-4">
+    <hr>
+    <div class="d-flex justify-content-end mb-4">
       <form action="/questions" method="GET" class="search-form">
         <input type="text" name="searchQuery" placeholder="Search by title or questioner" value="<%= searchQuery %>" style="width: 300px;" />
         <button type="submit" class="btn btn-primary">Search</button>
       </form>
     </div>
 
-<div class="d-flex justify-content-left mb-4">
+<div class="d-flex justify-content-start mb-4">
   
   <a href="/questions/new" class="btn btn-success">Ask question</a>
   <form id="logout-form" action="/logout" method="POST" style="display: inline;">
@@ -34,7 +34,7 @@
 
 <hr>
 
-<h3 class="mb-4">Questions list</h3>
+<h3 class="mb-4">Recent Questions</h3>
 
     <% questions.forEach(question=> { %>
       <div class="card mt-4">

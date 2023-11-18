@@ -19,7 +19,7 @@ To login the Q&A platform, follow these steps:
 
 2. Go to the Login page
 
-3. Input the username and password
+3. Fill in the registe username and password
 
 4. Press the Login button
 

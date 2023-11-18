@@ -16,16 +16,12 @@ Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 To login the Q&A platform, follow these steps:
 
 1. Register a account
-> Input the name, password, email at the blank and press the register button.
 
 2. Go to the Login page
-> After register, broswer will return to the login page.
 
 3. Input the username and password
-> Input the username and password at the username and password blank.
 
 4. Press the Login button
-> Press the login button and login the Q&A platform.
 
 Default account:
 
@@ -41,10 +37,8 @@ Default account:
 To logout the account, follow these steps:
 
 1. Back to main page
-> If user are inside one of the question, press back to return the main page.
 
 2. Press the Logout button
-> Press the logout button, clean the cockie and back to the login page.
 
 ********************************************
 # CRUD service

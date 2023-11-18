@@ -8,6 +8,9 @@
 
 Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
+# Introduction
+> This is a Question and answer platform, user can ask and answer the question here, they can also search the question to see is there any solved problem to save the time of wait for someone to answer the question.
+ *******************************************
 # Login
 
 To login the Q&A platform, follow these steps:

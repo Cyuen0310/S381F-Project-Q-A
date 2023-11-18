@@ -6,7 +6,7 @@ Name:
 	Chan Sze Yuen(13342990)
 	Chan Chi Ho(13340738)
 
-Application link: https://qanda-1osh.onrender.com/
+Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
 #Introduction
 	This is a Question and answer platform, user can ask and answer the question here, they can also search the question to see is there any solved problem to save the time of wait for someone to answer the question. 

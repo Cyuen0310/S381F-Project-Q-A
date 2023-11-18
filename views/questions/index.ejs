@@ -14,7 +14,7 @@
   <div class="container">
     <h1 class="d-flex justify-content-center mb-4">Q&A</h1>
 
-    <div class="d-flex justify-content-right">
+    <div class="d-flex justify-content-right mb-4">
       <form action="/questions" method="GET" class="search-form">
         <input type="text" name="searchQuery" placeholder="Search by title or questioner" value="<%= searchQuery %>" style="width: 300px;" />
         <button type="submit" class="btn btn-primary">Search</button>
@@ -25,7 +25,7 @@
   
   <a href="/questions/new" class="btn btn-success">Ask question</a>
   <form id="logout-form" action="/logout" method="POST" style="display: inline;">
-    <button type="submit" class="btn btn-warning">Logout</button>
+    <button type="submit" class="btn btn-primary">Logout</button>
   </form>
   <form id="resetpassword-form" action="/resetPassword" method="GET" style="display: inline;">
     <button type="submit" class="btn btn-warning">Reset Password</button>

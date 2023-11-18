@@ -26,6 +26,8 @@
             <div class="form-group">
               <label for="username">Username:</label>
               <input
+                minlength="4"
+                maxlength="10"
                 pattern="[A-Za-z0-9]+"
                 type="text"
                 class="form-control"
@@ -42,6 +44,8 @@
                 class="form-control"
                 name="password"
                 id="password"
+                minlength="8"
+                maxlength="20"
                 placeholder="Password"
                 required/>
           </div>

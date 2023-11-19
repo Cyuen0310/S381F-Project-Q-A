@@ -9,7 +9,7 @@
 Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
 # Introduction
-In this project, we implement a Question and answer platform using the mangoDB, This platform can handle these mentioned function:
+In this project, we implement a Question and answer platform using the mongoDB, This platform can handle these mentioned function:
 1. Register
 2. Login
 3. Logout

@@ -17,12 +17,14 @@ To run at own device, follow these steps:
 
 1. Clone the repo.
    > git clone https://github.com/Cyuen0310/Q-A.git
-2. Install NPM packages
+2. Installing Platform Dependencies
    > npm install
 3. Reinstalling nodemon
    > sudo npm install -g nodemon
-4. Enter your MangoDB in
-   >
+4. Enter your MangoDB link in db.js at server folder
+   > const uri = "Enter your MangoDB connect link";
+5. Run the Platform
+   > npm start
  *******************************************
 # Register
 

@@ -263,8 +263,9 @@ We have three paths to deleting information
 	"comments":
 		["6559c3798ae73627a3e4f1fe","6559c3928ae73627a3e4f20a"],
 	"createdAt":"2023-11-19T08:12:33.768Z",
-	"slug":"delet-question","__v":2}}
-
+	"slug":"delet-question","__v":2}
+}
+```
 	explain: Deleting this question via the question _id will delete all the content and all the following comments will also be deleted.
 
 3. DELETE a comment

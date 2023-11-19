@@ -51,7 +51,9 @@ To registered a account of Q&A platform, follow these steps:
 1. Click on the "Register" button at Login page.
 2. Fill in the non-registered username, password and email.
 	> Username: The username should be unique.
+ 
  	> Email: The email should be unique.
+  
  	> Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
  
 3. Click on the "Register" button to create account.

@@ -21,7 +21,7 @@ To run at own device, follow these steps:
    > npm install
 3. Reinstalling nodemon.
    > sudo npm install -g nodemon
-4. Enter your MangoDB link in db.js at server folder.
+4. Enter your MangoDB link in ```db.js``` at server folder.
    > const uri = "Enter your MangoDB connect link";
 5. Run the Platform.
    > npm start

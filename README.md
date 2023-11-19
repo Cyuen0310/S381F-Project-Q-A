@@ -31,38 +31,29 @@ To run at own device, follow these steps:
 To registered a account of Q&A platform, follow these steps:
 
 1. Click on the "Register" button at Login page.
-   
 2. Fill in the non-registered username, password and email.
 > Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
-   
 3. Click on the "Register" button at Register page.
+4.  
  *******************************************
 # Login
-
 To login the Q&A platform, follow these steps:
 
 1. Go to the Login page.
-
 2. Fill in the registered username and password.
 > Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
-
 3. Click on the "Login" button.
 
 Default account:
-
 > {username: abc, password: 12345678}
-
 > {username: user, password: 87412365}
-
 > {username: def987, password: ab654321}
 
 ********************************************
 # Logout
-
 To logout the account, follow these steps:
 
 1. Back to main page.
-
 2. Click on the "Logout" button.
 
 ********************************************

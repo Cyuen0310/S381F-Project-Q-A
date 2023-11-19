@@ -45,10 +45,11 @@
       <div class="card mt-4">
 
         <div class="card-body">
-          <h2 class="card-title"><%= comment.comment %></h2>
+          <h3 class="card-title"><%= comment.comment %></h3>
           <div class="d-flex justify-content-end">
             <div class="card-subtitle text-muted mb-2">
               answered: <%= comment.createAt ? comment.createAt.toLocaleDateString() : '' %>
+              <br>
               respondent: <%= comment.respondentname %>
             </div>
           </div>

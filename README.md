@@ -9,7 +9,15 @@
 Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 ********************************************
 # Introduction
-> This is a Question and answer platform, user can ask and answer the question here, they can also search the question to see is there any solved problem to save the time of wait for someone to answer the question.
+In this project, we implement a Question and answer platform using the mangoDB, This platform can handle these mentioned function:
+1. Register
+2. Login
+3. Logout
+4. Create Question
+5. Adding comment
+6. Update Account password
+7. Delete Question
+8. Searching specified question by Title or Questioner
  *******************************************
 # Instruction of using at own linux device
 
@@ -48,7 +56,9 @@ To login the Q&A platform, follow these steps:
 
 Default account:
 > {username: abc, password: 12345678}
+
 > {username: user, password: 87412365}
+
 > {username: def987, password: ab654321}
 
 ********************************************

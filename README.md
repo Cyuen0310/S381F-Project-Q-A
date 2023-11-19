@@ -183,7 +183,7 @@ We have three paths to get different information
 ```
 	explain： This curl will find the previous question by using the _id, the _id in every question is unique, and all the information of the question will be shown in the terminal, including title, description, and comment _id in an array.
 
-4. Get all the questions that the user asked before
+3. Get all the questions that the user asked before
    
 	format:/questioner/:questioner
 
@@ -310,7 +310,7 @@ We have three paths to updating information
 ```
 	explain: Update all user information including name, password, and email address. The user's previous name in questions and comments will also be updated when the name is updated.
 
-3. PUT a new question title and description
+2. PUT a new question title and description
 	format:/questionid/:questionid
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6559c62c8ae73627a3e4f237
@@ -333,7 +333,7 @@ We have three paths to updating information
 	explain:Update the title and description, with a new  title and description via the question _id.
 
 
-5. PUT a new comment
+3. PUT a new comment
    
 	format:/commentid/:commentid
 

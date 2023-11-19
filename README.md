@@ -89,7 +89,7 @@ To create a new question, follow these steps:
 
 1. Click on the "Ask question" button.
 2.  Fill in the title and description of your question. 
-	> Title: The title should be a unique value.
+	> Title: The title should be unique.
 
 	> Description: Provide a detailed description of your question.
 3. Click on the "Submit" button to create the question.

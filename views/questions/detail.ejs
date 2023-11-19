@@ -14,15 +14,18 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="mb-1">Title: <%= question.title %></h1>
-      <div class="card-subtitle test-muted mb-2">
-          Posted on: <%= question.createdAt.toLocaleDateString() %>
+      <h1 class="mb-1"> <%= question.title %> </h1>
+      <div class="text-muted mb-2">
+          <div class = "d-flex justify-content-end">
+            Posted on: <%= question.createdAt.toLocaleDateString() %>
+          </div>
           Questioner: <%= question.questionername %>
       </div>
       <hr>
 
       <div class="container">
-        <div class="card">
+        <h2 class="mb-1">Description:</h2>
+        <div class="card mt-4">
           <div class="card-body">
             <%= question.description %>
           </div>
@@ -39,14 +42,15 @@
       <h2 class="mb-1">Comments:</h2>
       <% question.comments.forEach(comment => { %>
       <div class="card mt-4">
+        <div class="card-text mb-2">
+            Respondent: <%= comment.respondentname %>
+        </div>
         <div class="card-body">
           <h2 class="card-title"><%= comment.comment %></h2>
-          <div class="card-subtitle text-muted mb-2">
-            Created at: <%= comment.createAt ?
-            comment.createAt.toLocaleDateString() : '' %>
-          </div>
-          <div class="card-text mb-2">
-            Respondent: <%= comment.respondentname %>
+          <div class="d-flex justify-content-end">
+            <div class="card-subtitle text-muted mb-2">
+              Created at: <%= comment.createAt ? comment.createAt.toLocaleDateString() : '' %>
+            </div>
           </div>
         </div>
       </div>

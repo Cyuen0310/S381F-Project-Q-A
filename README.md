@@ -147,7 +147,8 @@ About GET
 We have three paths to get different information
 
 1. Get all the information from one user
-	format:/username/:username
+	
+ 	format:/username/:username
 
 	curl: curl -X GET localhost:8000/username/getuser
  
@@ -227,7 +228,8 @@ About DELETE
 We have three paths to deleting information
 
 1. DELETE a user
-	format:/username/:username
+	
+ 	format:/username/:username
 
 	curl:curl -X DELETE localhost:8000/username/delete1
 
@@ -247,7 +249,8 @@ We have three paths to deleting information
 	explain: we can delete a user via the user name, the user name is unique. The question including all the questions this user has asked and the following messages that this user has left and the messages that other users have left on this question will be deleted. At the same time, the past comments this user has left on other questions will also be deleted.
 
 2. DELETE a question
-	format:/questionid/:questionId
+	
+ 	format:/questionid/:questionId
 
 	curl:curl -X DELETE localhost:8000/questionid/6559c3718ae73627a3e4f1f8
 
@@ -269,7 +272,8 @@ We have three paths to deleting information
 	explain: Deleting this question via the question _id will delete all the content and all the following comments will also be deleted.
 
 3. DELETE a comment
-	format:/commentid/:commentid
+	
+ 	format:/commentid/:commentid
 
 	curl:curl -X DELETE localhost:8000/commentid/6559c4988ae73627a3e4f213
 
@@ -292,7 +296,8 @@ About PUT
 We have three paths to updating information
 
 1. PUT a user information
-	format:/userid/:userid
+	
+ 	format:/userid/:userid
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdate", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6559c5538ae73627a3e4f21b
 
@@ -311,6 +316,7 @@ We have three paths to updating information
 	explain: Update all user information including name, password, and email address. The user's previous name in questions and comments will also be updated when the name is updated.
 
 2. PUT a new question title and description
+
 	format:/questionid/:questionid
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6559c62c8ae73627a3e4f237

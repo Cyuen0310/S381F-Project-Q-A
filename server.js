@@ -109,7 +109,7 @@ app.get('/username/:username', function(req, res) {
 
 //Path 2
 //GET Path get the T and des without user (from _id)
-//curl -X GET localhost:8000/questionid/6558e067514ddbff44f80b6c
+//curl -X GET localhost:8000/questionid/6559b368192902bac60f3209
 //
 app.get('/questionid/:questionid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -209,13 +209,12 @@ app.delete('/username/:username', function(req, res) {
       } else {
         Question.find({ questionername: username })
           .then(questions => {
-            const questionIds = questions.map(question => question._id);
-
+            const questionIds = questions.map(question => question._id)
             Comment.deleteMany({ questionid: { $in: questionIds } })
               .then(() => {
                 Question.deleteMany({ _id: { $in: questionIds } })
                   .then(() => {
-                    res.status(200).send('User and associated data deleted successfully');
+                    res.status(200).json({ message: "User and associated data deleted successfully", deletedUser });
                   })
                   .catch(err => {
                     console.error(err);
@@ -241,7 +240,7 @@ app.delete('/username/:username', function(req, res) {
 
 //Path 6
 // delete the question with id
-//curl -X DELETE localhost:8000/questionid/6558e4514adf1e08c66a180b
+//curl -X DELETE localhost:8000/questionid/6559b368192902bac60f3209
 //Question and associated data deleted successfully
 app.delete('/questionid/:questionId', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -257,7 +256,7 @@ app.delete('/questionid/:questionId', function(req, res) {
       } else {
         Comment.deleteMany({ questionid: questionId })
           .then(() => {
-            res.status(200).send('Question and associated data deleted successfully');
+            res.status(200).json({ message: "Question and associated data deleted successfully", deletedQuestion });
           })
           .catch(err => {
             console.error(err);
@@ -272,7 +271,7 @@ app.delete('/questionid/:questionId', function(req, res) {
 });
 // Path 7
 // DELETE Path for deleting comment
-// curl -X DELETE localhost:8000/commentid/6558e4ee4adf1e08c66a182c
+// curl -X DELETE localhost:8000/commentid/6559b87a192902bac60f321e
 //Comment deleted successfully
 app.delete('/commentid/:commentid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -296,7 +295,7 @@ app.delete('/commentid/:commentid', function(req, res) {
             if (!updatedQuestion) {
               res.status(404).send('Question not found');
             } else {
-              res.status(200).send('Comment deleted successfully');
+              res.status(200).json({ message: "Comment data deleted successfully", deletedComment });
             }
           })
           .catch(err => {
@@ -312,7 +311,7 @@ app.delete('/commentid/:commentid', function(req, res) {
 });
 //Path 8
 //PUT path to update name,password,updatetime from _id
-//curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdat", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6558e6f8bbc150f255de67b2
+//curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdate", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6559bd063784380cce17d84d
 
 app.put('/userid/:userid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -337,7 +336,7 @@ app.put('/userid/:userid', function(req, res) {
             return Comment.updateMany({ respondent: userId }, { respondentname: updatedFields.name });
           })
           .then(() => {
-            res.status(200).json(updatedUser);
+            res.status(200).json({message:"The user have been updated!" ,updatedUser});
           })
           .catch(err => {
             console.error(err);
@@ -353,7 +352,7 @@ app.put('/userid/:userid', function(req, res) {
 
 //Path 9
 //PUT path to update the title and description
-//curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6558e7eabbc150f255de67cf
+//curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6559bd1d3784380cce17d853
 
 app.put('/questionid/:questionid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -372,7 +371,7 @@ app.put('/questionid/:questionid', function(req, res) {
       if (!updatedQuestion) {
         res.status(404).send('Question not found');
       } else {
-        res.status(200).json(updatedQuestion);
+        res.status(200).json({message:"The Question has been updated",updatedQuestion});
       }
     })
     .catch(err => {
@@ -382,7 +381,7 @@ app.put('/questionid/:questionid', function(req, res) {
 });
 //Path 10
 //PUT Path to upadte the comment form the id
-//curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6558e7efbbc150f255de67d4
+//curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6559bd2a3784380cce17d859
 
 app.put('/commentid/:commentid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -397,7 +396,7 @@ app.put('/commentid/:commentid', function(req, res) {
       if (!updatedComment) {
         res.status(404).send('Comment not found');
       } else {
-        res.status(200).json(updatedComment);
+        res.status(200).json({message:"The Comment has been updated",updatedComment});
       }
     })
     .catch(err => {

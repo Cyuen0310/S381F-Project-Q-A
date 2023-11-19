@@ -84,6 +84,7 @@ To logout the account, follow these steps:
 
 ********************************************
 # CRUD service
+For some of the restful CRUD services, login should be done first.
 ## Creating a Question
 To create a new question, follow these steps:
 
@@ -213,4 +214,4 @@ curl:curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Co
 respond:
 explain:Update the comment, with a new comment via the comment _id.
 
-For some of the restful CRUD services, login should be done first.
+

@@ -90,7 +90,7 @@ To create a new question, follow these steps:
 
 1. Click on the "Ask question" button.
 2.  Fill in the title and description of your question. 
-	> Title: The title should be unique.
+	> Title: The title should be unique. You cannot have multiple questions with the same title.
 
 	> Description: Provide a detailed description of your question.
 3. Click on the "Submit" button to create the question.
@@ -136,6 +136,7 @@ To search for questions by title or questioner, follow these steps:
 2. Click on the "Search" button or press Enter.
 3. The page will display the questions that match the search query in the title or questioner fields.
 
+#### Note: The search is case-insensitive, so you don't need to worry about capitalization.
 ********************************************
 # Restful
 Introduction

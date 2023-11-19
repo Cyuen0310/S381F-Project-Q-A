@@ -151,7 +151,7 @@ We have three paths to get different information
 
 	curl: curl -X GET localhost:8000/username/getuser
  
-	respond:
+	respond:{"_id":"6559b306192902bac60f31f5","name":"getuser","password":"getuser123","email":"getuser@gmail.com","createdAt":"2023-11-19T07:02:30.337Z","__v":0}
 
 	explain: this curl verifies the name of the user, because the name is unique, and the whole data in the database will be shown, including name, password, and email. 
 
@@ -161,7 +161,7 @@ We have three paths to get different information
 
 	curl: curl -X GET localhost:8000/questionid/6558e067514ddbff44f80b6c
 
-	respond:
+	respond:{"question":{"_id":"6559b368192902bac60f3209","title":"how to get a question?","description":"get question?","questioner":"6559b306192902bac60f31f5","questionername":"getuser","comments":["6559b36f192902bac60f320f"],"createdAt":"2023-11-19T07:04:08.019Z","slug":"how-to-get-a-question","__v":1}}
 
 	explain： This curl will find the previous question by using the _id, the _id in every question is unique, and all the information of the question will be shown in the terminal, including title, description, and comment _id in an array.
 
@@ -171,7 +171,7 @@ We have three paths to get different information
 
 	curl:curl -X GET localhost:8000/questioner/getuser
 
-	respond:
+	respond:[{"title":"How to getting a user","description":"get user?"},{"title":"how to get a question?","description":"get question?"},{"title":"get user?","description":"get user?"}]
 
 	explain: this curl find out all questions asked by the users, the all title with the description will be shown.
 
@@ -198,7 +198,7 @@ We have three paths to deleting information
 
 	curl:curl -X DELETE localhost:8000/username/delete1
 
-	respond:User and associated data deleted successfully
+	respond:{"message":"User and associated data deleted successfully","deletedUser":{"_id":"6559ba7e2d145b2151b09852","name":"delet1","password":"delete123","email":"delete@gmail.com","createdAt":"2023-11-19T07:34:22.619Z","__v":0}}
 
 	explain: we can delete a user via the user name, the user name is unique. The question including all the questions this user has asked and the following messages that this user has left and the messages that other users have left on 	this question will be deleted. At the same time, the past comments this user has left on other questions will also be deleted.
 
@@ -207,7 +207,7 @@ We have three paths to deleting information
 
 	curl:curl -X DELETE localhost:8000/questionid/6558e4514adf1e08c66a180b
 
-	respond:Question and associated data deleted successfully
+	respond:{"message":"Question and associated data deleted successfully","deletedQuestion":{"_id":"6559b368192902bac60f3209","title":"how to get a question?","description":"get question?","questioner":"6559b306192902bac60f31f5","questionername":"getuser","comments":["6559b36f192902bac60f320f"],"createdAt":"2023-11-19T07:04:08.019Z","slug":"how-to-get-a-question","__v":1}}
 
 	explain: Deleting this question via the question _id will delete all the content and all the following comments will also be deleted.
 
@@ -216,7 +216,7 @@ We have three paths to deleting information
 
 	curl:curl -X DELETE localhost:8000/commentid/6558e4ee4adf1e08c66a182c
 
-	respond: Comment deleted successfully
+	respond: {"message":"Comment data deleted successfully","deletedComment":{"_id":"6559b87a192902bac60f321e","comment":"wow","respondent":"6559b306192902bac60f31f5","respondentname":"getuser","questionid":"6559b875192902bac60f3218","createAt":"2023-11-19T07:25:46.997Z","__v":0}}
 
 	explain: Deleting this comment via the comment _id will delete all its content.
 
@@ -228,7 +228,7 @@ We have three paths to updating information
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdat", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6558e6f8bbc150f255de67b2
 
-	respond:
+	respond: {"message":"The user have been updated!","updatedUser":{"_id":"6559bd063784380cce17d84d","name":"afterupdat","password":"123456789101112","email":"au@gmail.com","createdAt":"2023-11-19T07:45:10.008Z","__v":0}}
 
 	explain: Update all user information including name, password, and email address. The user's previous name in questions and comments will also be updated when the name is updated.
 
@@ -237,17 +237,17 @@ We have three paths to updating information
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6558e7eabbc150f255de67cf
 
-	respond:
+	respond: {"message":"The Question has been updated","updatedQuestion":{"_id":"6559bd1d3784380cce17d853","title":"Updated Question","description":"123","questioner":"6559bd063784380cce17d84d","questionername":"afterupdat","comments":["6559bd2a3784380cce17d859"],"createdAt":"2023-11-19T07:45:33.817Z","slug":"updated-question","__v":1}}
 
 	explain:Update the title and description, with a new  title and description via the question _id.
 
 
-3. PUT a new comment
+4. PUT a new comment
    
 	format:/commentid/:commentid
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6558e7efbbc150f255de67d4
 
-	respond:
+	respond:{"message":"The Comment has been updated","updatedComment":{"_id":"6559bd2a3784380cce17d859","comment":"Updated Comment","respondent":"6559bd063784380cce17d84d","respondentname":"afterupdat","questionid":"6559bd1d3784380cce17d853","createAt":"2023-11-19T07:45:46.622Z","__v":0}}
 
 	explain:Update the comment, with a new comment via the comment _id.

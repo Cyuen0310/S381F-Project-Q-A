@@ -24,15 +24,25 @@ In this project, we implement a Question and answer platform using the mangoDB, 
 To run at own device, follow these steps:
 
 1. Clone the repo.
-   > git clone https://github.com/Cyuen0310/Q-A.git
+  ```
+  git clone https://github.com/Cyuen0310/Q-A.git
+  ``` 
 2. Installing Platform Dependencies.
-   > npm install
+  ```
+  npm install
+  ```
 3. Reinstalling nodemon.
-   > sudo npm install -g nodemon
+  ```
+  sudo npm install -g nodemon
+  ```
 4. Enter your MangoDB link in ```db.js``` at server folder.
-   > const uri = "Enter your MangoDB connect link";
+  ```
+  const uri = "Enter your MangoDB connect link";
+  ```
 5. Run the Platform.
-   > npm start
+  ```
+  npm start
+  ```
  *******************************************
 # Register
 

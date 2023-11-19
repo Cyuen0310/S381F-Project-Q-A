@@ -68,11 +68,11 @@ To login the Q&A platform, follow these steps:
 
 Default account:
 
-	> {username: abc, password: 12345678}
+	> {name: "def987"  password: "ab654321"  email: "def987@gmail.com"}
 
-	> {username: user, password: 87412365}
+	> {name: "user"  password: "87412365"  email: "user@gmail.com"}
 
-	> {username: def987, password: ab654321}
+	> {name: "try1"  password: "try123456"  email: "try@gmail.com"}
 
 ********************************************
 # Logout

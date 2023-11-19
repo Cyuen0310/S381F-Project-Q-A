@@ -202,22 +202,17 @@ app.delete('/username/:username', function(req, res) {
 
   const username = req.params.username;
 
-  // Find the user by username and remove it
   User.findOneAndDelete({ name: username })
     .then(deletedUser => {
       if (!deletedUser) {
         res.status(404).send('User not found');
       } else {
-        // Find all the questions associated with the user
         Question.find({ questionername: username })
           .then(questions => {
-            // Delete all the questions and associated comments
             const questionIds = questions.map(question => question._id);
 
-            // Delete comments associated with the questions
             Comment.deleteMany({ questionid: { $in: questionIds } })
               .then(() => {
-                // Delete the questions
                 Question.deleteMany({ _id: { $in: questionIds } })
                   .then(() => {
                     res.status(200).send('User and associated data deleted successfully');
@@ -255,13 +250,11 @@ app.delete('/questionid/:questionId', function(req, res) {
 
   const questionId = req.params.questionId;
 
-  // Delete the question
   Question.findOneAndDelete({ _id: questionId })
     .then(deletedQuestion => {
       if (!deletedQuestion) {
         res.status(404).send('Question not found');
       } else {
-        // Delete comments associated with the question
         Comment.deleteMany({ questionid: questionId })
           .then(() => {
             res.status(200).send('Question and associated data deleted successfully');
@@ -289,13 +282,11 @@ app.delete('/commentid/:commentid', function(req, res) {
 
   const commentId = req.params.commentid;
 
-  // Find the comment by its ID and remove it
   Comment.findByIdAndDelete(commentId)
     .then(deletedComment => {
       if (!deletedComment) {
         res.status(404).send('Comment not found');
       } else {
-        // Find the question associated with the comment
         Question.findOneAndUpdate(
           { comments: commentId },
           { $pull: { comments: commentId } },
@@ -341,10 +332,8 @@ app.put('/userid/:userid', function(req, res) {
       if (!updatedUser) {
         res.status(404).send('User not found');
       } else {
-        // Update user name in associated questions
         Question.updateMany({ questioner: userId }, { questionername: updatedFields.name })
           .then(() => {
-            // Update user name in associated comments
             return Comment.updateMany({ respondent: userId }, { respondentname: updatedFields.name });
           })
           .then(() => {
@@ -374,13 +363,10 @@ app.put('/questionid/:questionid', function(req, res) {
   
   const questionId = req.params.questionid;
 
-  // Generate slug from the new title
   const newSlug = generateSlug(req.body.title);
 
-  // Update the request body to include the new slug
   req.body.slug = newSlug;
 
-  // Find the question by its ID
   Question.findByIdAndUpdate(questionId, req.body, { new: true })
     .then(updatedQuestion => {
       if (!updatedQuestion) {

@@ -294,26 +294,60 @@ We have three paths to updating information
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdate", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6559c5538ae73627a3e4f21b
 
-	respond: {"message":"The user have been updated!","updatedUser":{"_id":"6559c5538ae73627a3e4f21b","name":"afterupdate","password":"123456789101112","email":"au@gmail.com","createdAt":"2023-11-19T08:20:35.570Z","__v":0}}
-
+	respond:
+```json
+{"message":"The user have been updated!",
+"updatedUser":
+	{"_id":"6559c5538ae73627a3e4f21b",
+	"name":"afterupdate",
+	"password":"123456789101112",
+	"email":"au@gmail.com",
+	"createdAt":"2023-11-19T08:20:35.570Z",
+	"__v":0}
+}
+```
 	explain: Update all user information including name, password, and email address. The user's previous name in questions and comments will also be updated when the name is updated.
 
-2. PUT a new question title and description
+3. PUT a new question title and description
 	format:/questionid/:questionid
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6559c62c8ae73627a3e4f237
 
-	respond: {"message":"The Question has been updated","updatedQuestion":{"_id":"6559c62c8ae73627a3e4f237","title":"Updated Question","description":"123","questioner":"6559c6118ae73627a3e4f231","questionername":"updateqc","comments":["6559c6388ae73627a3e4f23d"],"createdAt":"2023-11-19T08:24:12.737Z","slug":"updated-question","__v":1}}
-
+	respond:
+```json
+{"message":"The Question has been updated",
+"updatedQuestion":
+	{"_id":"6559c62c8ae73627a3e4f237",
+	"title":"Updated Question",
+	"description":"123",
+	"questioner":"6559c6118ae73627a3e4f231",
+	"questionername":"updateqc",
+	"comments":["6559c6388ae73627a3e4f23d"],
+	"createdAt":"2023-11-19T08:24:12.737Z",
+	"slug":"updated-question",
+	"__v":1}
+}
+```
 	explain:Update the title and description, with a new  title and description via the question _id.
 
 
-3. PUT a new comment
+5. PUT a new comment
    
 	format:/commentid/:commentid
 
 	curl:curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6559c6388ae73627a3e4f23d
 
-	respond:{"message":"The Comment has been updated","updatedComment":{"_id":"6559c6388ae73627a3e4f23d","comment":"Updated Comment","respondent":"6559c6118ae73627a3e4f231","respondentname":"updateqc","questionid":"6559c62c8ae73627a3e4f237","createAt":"2023-11-19T08:24:24.842Z","__v":0}}
-
+	respond:
+```json
+{"message":"The Comment has been updated",
+"updatedComment":
+{"_id":"6559c6388ae73627a3e4f23d",
+"comment":"Updated Comment",
+"respondent":"6559c6118ae73627a3e4f231",
+"respondentname":"updateqc",
+"questionid":"6559c62c8ae73627a3e4f237",
+"createAt":"2023-11-19T08:24:24.842Z",
+"__v":0}
+}
+```
 	explain:Update the comment, with a new comment via the comment _id.

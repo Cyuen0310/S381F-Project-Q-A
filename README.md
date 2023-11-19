@@ -128,7 +128,7 @@ To delete your question, follow these instructions:
 4. Verify that the question and associated comments are no longer visible on the website.
 
 ********************************************
-## Searching specified question by Title or Questioner
+## Searching specified questions by Title or Questioner
 To search for questions by title or questioner, follow these steps:
 
 1. Enter your search query in the search bar.
@@ -137,7 +137,80 @@ To search for questions by title or questioner, follow these steps:
 
 ********************************************
 # Restful
-In this project, there are three  request types, ,  and .
+Introduction
 
+We have HTTP four request types including GET, POST, PUT, and DELETE. All the responses from the terminal all be in JSON format, except DELETE because delete will show the result in text by telling the developer the information has been deleted.
 
-For all restful CRUD services, login should be done at first.
+About GET
+We have three paths to get different information
+
+1. Get all the information from one user
+format:/username/:username
+curl: curl -X GET localhost:8000/username/getuser
+respond:
+explain: this curl verifies the name of the user, because the name is unique, and the whole data in the database will be shown, including name, password, and email. 
+
+2. Get specific question information
+format:/questionid/:questionid
+curl: curl -X GET localhost:8000/questionid/6558e067514ddbff44f80b6c
+respond:
+explain： This curl will find the previous question by using the _id, the _id in every question is unique, and all the information of the question will be shown in the terminal, including title, description, and comment _id in an array.
+
+3. Get all the questions that the user asked before
+format:/questioner/:questioner
+curl:curl -X GET localhost:8000/questioner/getuser
+respond:
+explain: this curl find out all questions asked by the users, the all title with the description will be shown.
+
+About POST
+We have one path to adding information
+
+1. POST a new user
+format:/users
+curl: curl -H "Content-Type: application/json" -X POST -d '{"name": "addnewuser","password":"12345678910","email":"add@gamil.com"}' localhost:8000/users
+respond:
+explain: we can add a new user by sending completed information to the terminal and add a new user to the database, after adding the web can use that information to log in.
+
+About DELETE
+We have three paths to deleting information
+
+1. DELETE a user
+format:/username/:username
+curl:curl -X DELETE localhost:8000/username/delete1
+respond:User and associated data deleted successfully
+explain: we can delete a user via the user name, the user name is unique. The question including all the questions this user has asked and the following messages that this user has left and the messages that other users have left on this question will be deleted. At the same time, the past comments this user has left on other questions will also be deleted.
+
+2.DELETE a question
+format:/questionid/:questionId
+curl:curl -X DELETE localhost:8000/questionid/6558e4514adf1e08c66a180b
+respond:Question and associated data deleted successfully
+explain: Deleting this question via the question _id will delete all the content and all the following comments will also be deleted.
+
+3.DELETE a comment
+format:/commentid/:commentid
+curl:curl -X DELETE localhost:8000/commentid/6558e4ee4adf1e08c66a182c
+respond: Comment deleted successfully
+explain: Deleting this comment via the comment _id will delete all its content.
+
+About PUT
+We have three paths to updating information
+
+1. PUT a user information
+format:/userid/:userid
+curl:curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdat", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6558e6f8bbc150f255de67b2
+respond:
+explain: Update all user information including name, password, and email address. The user's previous name in questions and comments will also be updated when the name is updated.
+
+2.PUT a new question title and description
+format:/questionid/:questionid
+curl:curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6558e7eabbc150f255de67cf
+respond:
+explain:Update the title and description, with a new  title and description via the question _id.
+
+3.PUT a new comment
+format:/commentid/:commentid
+curl:curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6558e7efbbc150f255de67d4
+respond:
+explain:Update the comment, with a new comment via the comment _id.
+
+For all restful CRUD services, login should be done first.

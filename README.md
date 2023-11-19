@@ -159,9 +159,9 @@ We have three paths to get different information
 
 	format:/questionid/:questionid
 
-	curl: curl -X GET localhost:8000/questionid/6558e067514ddbff44f80b6c
+	curl: curl -X GET localhost:8000/questionid/6559b875192902bac60f3218
 
-	respond:{"question":{"_id":"6559b368192902bac60f3209","title":"how to get a question?","description":"get question?","questioner":"6559b306192902bac60f31f5","questionername":"getuser","comments":["6559b36f192902bac60f320f"],"createdAt":"2023-11-19T07:04:08.019Z","slug":"how-to-get-a-question","__v":1}}
+	respond:{"question":{"_id":"6559b875192902bac60f3218","title":"get user?","description":"get user?","questioner":"6559b306192902bac60f31f5","questionername":"getuser","comments":["6559c0f28ae73627a3e4f1ca"],"createdAt":"2023-11-19T07:25:41.143Z","slug":"get-user","__v":2}}
 
 	explain： This curl will find the previous question by using the _id, the _id in every question is unique, and all the information of the question will be shown in the terminal, including title, description, and comment _id in an array.
 

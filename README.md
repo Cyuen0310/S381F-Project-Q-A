@@ -17,25 +17,25 @@ To run at own device, follow these steps:
 
 1. Clone the repo.
    > git clone https://github.com/Cyuen0310/Q-A.git
-2. Installing Platform Dependencies
+2. Installing Platform Dependencies.
    > npm install
-3. Reinstalling nodemon
+3. Reinstalling nodemon.
    > sudo npm install -g nodemon
-4. Enter your MangoDB link in db.js at server folder
+4. Enter your MangoDB link in db.js at server folder.
    > const uri = "Enter your MangoDB connect link";
-5. Run the Platform
+5. Run the Platform.
    > npm start
  *******************************************
 # Register
 
 To registered a account of Q&A platform, follow these steps:
 
-1. Click on the "Register" button.
+1. Click on the "Register" button at Login page.
    
 2. Fill in the non-registered username, password and email.
 > Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
    
-3. Click on the "Register" button.
+3. Click on the "Register" button at Register page.
  *******************************************
 # Login
 

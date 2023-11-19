@@ -349,13 +349,13 @@ We have three paths to updating information
 ```json
 {"message":"The Comment has been updated",
 "updatedComment":
-{"_id":"6559c6388ae73627a3e4f23d",
-"comment":"Updated Comment",
-"respondent":"6559c6118ae73627a3e4f231",
-"respondentname":"updateqc",
-"questionid":"6559c62c8ae73627a3e4f237",
-"createAt":"2023-11-19T08:24:24.842Z",
-"__v":0}
+	{"_id":"6559c6388ae73627a3e4f23d",
+	"comment":"Updated Comment",
+	"respondent":"6559c6118ae73627a3e4f231",
+	"respondentname":"updateqc",
+	"questionid":"6559c62c8ae73627a3e4f237",
+	"createAt":"2023-11-19T08:24:24.842Z",
+	"__v":0}
 }
 ```
 	explain:Update the comment, with a new comment via the comment _id.

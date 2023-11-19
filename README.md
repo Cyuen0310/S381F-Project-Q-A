@@ -193,7 +193,8 @@ We have three paths to get different information
 ```json
 [
 {"title":"How to getting a user","description":"get user?"},
-{"title":"get user?","description":"get user?"},{"title":"WOW","description":"wow"}
+{"title":"get user?","description":"get user?"},
+{"title":"WOW","description":"wow"}
 ]
 ```
 	explain: this curl find out all questions asked by the users, the all title with the description will be shown.

@@ -109,8 +109,7 @@ app.get('/username/:username', function(req, res) {
 
 //Path 2
 //GET Path get the T and des without user (from _id)
-//curl -X GET localhost:8000/questionid/6559b368192902bac60f3209
-//
+//curl -X GET localhost:8000/questionid/6559b875192902bac60f3218
 app.get('/questionid/:questionid', function(req, res) {
   console.log('Incoming request: ' + req.method);
   console.log('Path: ' + req.path);
@@ -133,7 +132,6 @@ app.get('/questionid/:questionid', function(req, res) {
 //Path 3
 //GET Path get the T and des without user (from _id)
 //curl -X GET localhost:8000/questioner/getuser
-//
 app.get('/questioner/:questioner', function(req, res) {
   console.log('Incoming request: ' + req.method);
   console.log('Path: ' + req.path);
@@ -163,7 +161,6 @@ app.get('/questioner/:questioner', function(req, res) {
 //Path 4
 //POST Path for adding user
 //curl -H "Content-Type: application/json" -X POST -d '{"name": "addnewuser","password":"12345678910","email":"add@gamil.com"}' localhost:8000/users
-//{"name":"addnewuser","password":"12345678910","email":"add@gamil.com", "_id":"6558e2d64adf1e08c66a17cd","createdAt":"2023-11-18T16:14:14.700Z","__v":0}
 app.post('/users', function(req, res) {
   console.log('Incoming request: ' + req.method);
   console.log('Path: ' + req.path);
@@ -240,7 +237,7 @@ app.delete('/username/:username', function(req, res) {
 
 //Path 6
 // delete the question with id
-//curl -X DELETE localhost:8000/questionid/6559b368192902bac60f3209
+//curl -X DELETE localhost:8000/questionid/6559c3718ae73627a3e4f1f8
 //Question and associated data deleted successfully
 app.delete('/questionid/:questionId', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -271,7 +268,7 @@ app.delete('/questionid/:questionId', function(req, res) {
 });
 // Path 7
 // DELETE Path for deleting comment
-// curl -X DELETE localhost:8000/commentid/6559b87a192902bac60f321e
+// curl -X DELETE localhost:8000/commentid/6559c4988ae73627a3e4f213
 //Comment deleted successfully
 app.delete('/commentid/:commentid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -311,7 +308,7 @@ app.delete('/commentid/:commentid', function(req, res) {
 });
 //Path 8
 //PUT path to update name,password,updatetime from _id
-//curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdate", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6559bd063784380cce17d84d
+//curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdate", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6559c5538ae73627a3e4f21b
 
 app.put('/userid/:userid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -352,7 +349,7 @@ app.put('/userid/:userid', function(req, res) {
 
 //Path 9
 //PUT path to update the title and description
-//curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6559bd1d3784380cce17d853
+//curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6559c62c8ae73627a3e4f237
 
 app.put('/questionid/:questionid', function(req, res) {
   console.log('Incoming request: ' + req.method);
@@ -381,7 +378,7 @@ app.put('/questionid/:questionid', function(req, res) {
 });
 //Path 10
 //PUT Path to upadte the comment form the id
-//curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6559bd2a3784380cce17d859
+//curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6559c6388ae73627a3e4f23d
 
 app.put('/commentid/:commentid', function(req, res) {
   console.log('Incoming request: ' + req.method);

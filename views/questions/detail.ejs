@@ -41,15 +41,13 @@
     <div class="container">
       <h2 class="mb-1">Comments:</h2>
       <% question.comments.forEach(comment => { %>
+      <%= comment.respondentname %>
       <div class="card mt-4">
-        <div class="card-text mb-2">
-            Respondent: <%= comment.respondentname %>
-        </div>
         <div class="card-body">
           <h2 class="card-title"><%= comment.comment %></h2>
           <div class="d-flex justify-content-end">
             <div class="card-subtitle text-muted mb-2">
-              Created at: <%= comment.createAt ? comment.createAt.toLocaleDateString() : '' %>
+              answered: <%= comment.createAt ? comment.createAt.toLocaleDateString() : '' %>
             </div>
           </div>
         </div>

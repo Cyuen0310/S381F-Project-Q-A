@@ -226,9 +226,9 @@ We have three paths to updating information
 1. PUT a user information
 	format:/userid/:userid
 
-	curl:curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdat", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6558e6f8bbc150f255de67b2
+	curl:curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdate", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6559c5538ae73627a3e4f21b
 
-	respond: {"message":"The user have been updated!","updatedUser":{"_id":"6559bd063784380cce17d84d","name":"afterupdat","password":"123456789101112","email":"au@gmail.com","createdAt":"2023-11-19T07:45:10.008Z","__v":0}}
+	respond: {"message":"The user have been updated!","updatedUser":{"_id":"6559c5538ae73627a3e4f21b","name":"afterupdate","password":"123456789101112","email":"au@gmail.com","createdAt":"2023-11-19T08:20:35.570Z","__v":0}}
 
 	explain: Update all user information including name, password, and email address. The user's previous name in questions and comments will also be updated when the name is updated.
 

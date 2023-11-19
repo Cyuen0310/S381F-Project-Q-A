@@ -207,7 +207,7 @@ We have three paths to deleting information
 
 	curl:curl -X DELETE localhost:8000/questionid/6559c3718ae73627a3e4f1f8
 
-	respond:{"message":"Question and associated data deleted successfully","deletedQuestion":{"_id":"6559c3718ae73627a3e4f1f8","title":"delet question??","description":"dq","questioner":"6559c3588ae73627a3e4f1f2","questionername":"deleteqc","comments":["6559c3798ae73627a3e4f1fe","6559c3928ae73627a3e4f20a"],"createdAt":"2023-11-19T08:12:33.768Z","slug":"how-to-get-a-question","__v":1}}
+	respond:{"message":"Question and associated data deleted successfully","deletedQuestion":{"_id":"6559c3718ae73627a3e4f1f8","title":"delet question??","description":"dq","questioner":"6559c3588ae73627a3e4f1f2","questionername":"deleteqc","comments":["6559c3798ae73627a3e4f1fe","6559c3928ae73627a3e4f20a"],"createdAt":"2023-11-19T08:12:33.768Z","slug":"delet-question","__v":2}}
 
 	explain: Deleting this question via the question _id will delete all the content and all the following comments will also be deleted.
 

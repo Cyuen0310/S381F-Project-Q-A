@@ -198,25 +198,25 @@ We have three paths to deleting information
 
 	curl:curl -X DELETE localhost:8000/username/delete1
 
-	respond:{"message":"User and associated data deleted successfully","deletedUser":{"_id":"6559c2738ae73627a3e4f1dd","name":"delete1","password":"delete123","email":"delete@gmail.com","createdAt":"2023-11-19T08:19:282Z","__v":0}}
+	respond:{"message":"User and associated data deleted successfully","deletedUser":{"_id":"6559c2738ae73627a3e4f1dd","name":"delete1","password":"delete123","email":"delete@gmail.com","createdAt":"2023-11-19T08:08:19.282Z","__v":0}}
 
 	explain: we can delete a user via the user name, the user name is unique. The question including all the questions this user has asked and the following messages that this user has left and the messages that other users have left on 	this question will be deleted. At the same time, the past comments this user has left on other questions will also be deleted.
 
-3. DELETE a question
+2. DELETE a question
 	format:/questionid/:questionId
 
-	curl:curl -X DELETE localhost:8000/questionid/6558e4514adf1e08c66a180b
+	curl:curl -X DELETE localhost:8000/questionid/6559c3718ae73627a3e4f1f8
 
-	respond:{"message":"Question and associated data deleted successfully","deletedQuestion":{"_id":"6559b368192902bac60f3209","title":"how to get a question?","description":"get question?","questioner":"6559b306192902bac60f31f5","questionername":"getuser","comments":["6559b36f192902bac60f320f"],"createdAt":"2023-11-19T07:04:08.019Z","slug":"how-to-get-a-question","__v":1}}
+	respond:{"message":"Question and associated data deleted successfully","deletedQuestion":{"_id":"6559c3718ae73627a3e4f1f8","title":"delet question??","description":"dq","questioner":"6559c3588ae73627a3e4f1f2","questionername":"deleteqc","comments":["6559c3798ae73627a3e4f1fe","6559c3928ae73627a3e4f20a"],"createdAt":"2023-11-19T08:12:33.768Z","slug":"how-to-get-a-question","__v":1}}
 
 	explain: Deleting this question via the question _id will delete all the content and all the following comments will also be deleted.
 
-5. DELETE a comment
+3. DELETE a comment
 	format:/commentid/:commentid
 
-	curl:curl -X DELETE localhost:8000/commentid/6558e4ee4adf1e08c66a182c
+	curl:curl -X DELETE localhost:8000/commentid/6559c4988ae73627a3e4f213
 
-	respond: {"message":"Comment data deleted successfully","deletedComment":{"_id":"6559b87a192902bac60f321e","comment":"wow","respondent":"6559b306192902bac60f31f5","respondentname":"getuser","questionid":"6559b875192902bac60f3218","createAt":"2023-11-19T07:25:46.997Z","__v":0}}
+	respond: {"message":"Comment data deleted successfully","deletedComment":{"_id":"6559c4988ae73627a3e4f213","comment":"delete comment here ","respondent":"6559b306192902bac60f31f5","respondentname":"getuser","questionid":"6559c1dd8ae73627a3e4f1d5","createAt":"2023-11-19T08:17:28.823Z","__v":0}}
 
 	explain: Deleting this comment via the comment _id will delete all its content.
 
@@ -235,19 +235,19 @@ We have three paths to updating information
 2. PUT a new question title and description
 	format:/questionid/:questionid
 
-	curl:curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6558e7eabbc150f255de67cf
+	curl:curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6559c62c8ae73627a3e4f237
 
-	respond: {"message":"The Question has been updated","updatedQuestion":{"_id":"6559bd1d3784380cce17d853","title":"Updated Question","description":"123","questioner":"6559bd063784380cce17d84d","questionername":"afterupdat","comments":["6559bd2a3784380cce17d859"],"createdAt":"2023-11-19T07:45:33.817Z","slug":"updated-question","__v":1}}
+	respond: {"message":"The Question has been updated","updatedQuestion":{"_id":"6559c62c8ae73627a3e4f237","title":"Updated Question","description":"123","questioner":"6559c6118ae73627a3e4f231","questionername":"updateqc","comments":["6559c6388ae73627a3e4f23d"],"createdAt":"2023-11-19T08:24:12.737Z","slug":"updated-question","__v":1}}
 
 	explain:Update the title and description, with a new  title and description via the question _id.
 
 
-4. PUT a new comment
+3. PUT a new comment
    
 	format:/commentid/:commentid
 
-	curl:curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6558e7efbbc150f255de67d4
+	curl:curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6559c6388ae73627a3e4f23d
 
-	respond:{"message":"The Comment has been updated","updatedComment":{"_id":"6559bd2a3784380cce17d859","comment":"Updated Comment","respondent":"6559bd063784380cce17d84d","respondentname":"afterupdat","questionid":"6559bd1d3784380cce17d853","createAt":"2023-11-19T07:45:46.622Z","__v":0}}
+	respond:{"message":"The Comment has been updated","updatedComment":{"_id":"6559c6388ae73627a3e4f23d","comment":"Updated Comment","respondent":"6559c6118ae73627a3e4f231","respondentname":"updateqc","questionid":"6559c62c8ae73627a3e4f237","createAt":"2023-11-19T08:24:24.842Z","__v":0}}
 
 	explain:Update the comment, with a new comment via the comment _id.

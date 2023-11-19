@@ -165,13 +165,13 @@ We have three paths to get different information
 
 	explain： This curl will find the previous question by using the _id, the _id in every question is unique, and all the information of the question will be shown in the terminal, including title, description, and comment _id in an array.
 
-4. Get all the questions that the user asked before
+3. Get all the questions that the user asked before
    
 	format:/questioner/:questioner
 
 	curl:curl -X GET localhost:8000/questioner/getuser
 
-	respond:[{"title":"How to getting a user","description":"get user?"},{"title":"how to get a question?","description":"get question?"},{"title":"get user?","description":"get user?"}]
+	respond:[{"title":"How to getting a user","description":"get user?"},{"title":"get user?","description":"get user?"},{"title":"WOW","description":"wow"}]
 
 	explain: this curl find out all questions asked by the users, the all title with the description will be shown.
 

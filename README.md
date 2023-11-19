@@ -11,13 +11,23 @@ Application link: [Q&A Platform](https://qanda-1osh.onrender.com/)
 # Introduction
 > This is a Question and answer platform, user can ask and answer the question here, they can also search the question to see is there any solved problem to save the time of wait for someone to answer the question.
  *******************************************
+# Instruction of using at own linux device
+
+To run at own device, follow these steps:
+
+1. Clone the repo.
+   > git clone https://github.com/Cyuen0310/Q-A.git
+2. Install NPM packages
+   > npm install
+3. 
+ *******************************************
 # Register
 
 To registered a account of Q&A platform, follow these steps:
 
 1. Click on the "Register" button.
    
-2. Fill in the non-registered username, password and email
+2. Fill in the non-registered username, password and email.
 > Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
    
 3. Click on the "Register" button.
@@ -26,12 +36,12 @@ To registered a account of Q&A platform, follow these steps:
 
 To login the Q&A platform, follow these steps:
 
-1. Go to the Login page
+1. Go to the Login page.
 
-2. Fill in the registered username and password
+2. Fill in the registered username and password.
 > Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
 
-3. Click the Login button
+3. Click on the "Login" button.
 
 Default account:
 
@@ -46,9 +56,9 @@ Default account:
 
 To logout the account, follow these steps:
 
-1. Back to main page
+1. Back to main page.
 
-2. Press the Logout button
+2. Click on the "Logout" button.
 
 ********************************************
 # CRUD service

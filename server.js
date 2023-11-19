@@ -193,9 +193,9 @@ app.post('/users', function(req, res) {
 
 //Path 5
 // delete user by user name
-//curl -X DELETE localhost:8000/users/delet1
+//curl -X DELETE localhost:8000/username/delete1
 //User and associated data deleted successfully
-app.delete('/users/:username', function(req, res) {
+app.delete('/username/:username', function(req, res) {
   console.log('Incoming request: ' + req.method);
   console.log('Path: ' + req.path);
   console.log('Request body: ', req.body);
@@ -244,7 +244,40 @@ app.delete('/users/:username', function(req, res) {
     });
 });
 
-// Path 6
+//Path 6
+// delete the question with id
+//curl -X DELETE localhost:8000/questionid/6558e4514adf1e08c66a180b
+//Question and associated data deleted successfully
+app.delete('/questionid/:questionId', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ', req.body);
+
+  const questionId = req.params.questionId;
+
+  // Delete the question
+  Question.findOneAndDelete({ _id: questionId })
+    .then(deletedQuestion => {
+      if (!deletedQuestion) {
+        res.status(404).send('Question not found');
+      } else {
+        // Delete comments associated with the question
+        Comment.deleteMany({ questionid: questionId })
+          .then(() => {
+            res.status(200).send('Question and associated data deleted successfully');
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+          });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+// Path 7
 // DELETE Path for deleting comment
 // curl -X DELETE localhost:8000/commentid/6558e4ee4adf1e08c66a182c
 //Comment deleted successfully
@@ -274,41 +307,6 @@ app.delete('/commentid/:commentid', function(req, res) {
             } else {
               res.status(200).send('Comment deleted successfully');
             }
-          })
-          .catch(err => {
-            console.error(err);
-            res.status(500).send('Internal Server Error');
-          });
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
-    });
-});
-
-
-//Path 7
-// delete the question with id
-//curl -X DELETE localhost:8000/questionid/6558e4514adf1e08c66a180b
-//Question and associated data deleted successfully
-app.delete('/questionid/:questionId', function(req, res) {
-  console.log('Incoming request: ' + req.method);
-  console.log('Path: ' + req.path);
-  console.log('Request body: ', req.body);
-
-  const questionId = req.params.questionId;
-
-  // Delete the question
-  Question.findOneAndDelete({ _id: questionId })
-    .then(deletedQuestion => {
-      if (!deletedQuestion) {
-        res.status(404).send('Question not found');
-      } else {
-        // Delete comments associated with the question
-        Comment.deleteMany({ questionid: questionId })
-          .then(() => {
-            res.status(200).send('Question and associated data deleted successfully');
           })
           .catch(err => {
             console.error(err);
@@ -366,7 +364,7 @@ app.put('/userid/:userid', function(req, res) {
 
 //Path 9
 //PUT path to update the title and description
-//curl -H "Content-Type: application/json" -X PUT -d '{"title": "NewQuestion123", "description": "123"}' localhost:8000/questionid/6558e7eabbc150f255de67cf
+//curl -H "Content-Type: application/json" -X PUT -d '{"title": "Updated Question", "description": "123"}' localhost:8000/questionid/6558e7eabbc150f255de67cf
 
 app.put('/questionid/:questionid', function(req, res) {
   console.log('Incoming request: ' + req.method);

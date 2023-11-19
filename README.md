@@ -51,6 +51,7 @@ To registered a account of Q&A platform, follow these steps:
 1. Click on the "Register" button at Login page.
 2. Fill in the non-registered username, password and email.
 	> Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
+ 
 3. Click on the "Register" button to create account.
 4. You will be redirected to the login page.
 5. Verify that the account has been create using login.
@@ -61,6 +62,7 @@ To login the Q&A platform, follow these steps:
 1. Go to the Login page.
 2. Fill in the registered username and password.
 	> Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
+ 
 3. Click on the "Login" button.
 4. Verify that the account is valid when logging in.
 

@@ -198,7 +198,7 @@ We have three paths to deleting information
 
 	curl:curl -X DELETE localhost:8000/username/delete1
 
-	respond:{"message":"User and associated data deleted successfully","deletedUser":{"_id":"6559ba7e2d145b2151b09852","name":"delet1","password":"delete123","email":"delete@gmail.com","createdAt":"2023-11-19T07:34:22.619Z","__v":0}}
+	respond:{"message":"User and associated data deleted successfully","deletedUser":{"_id":"6559c2738ae73627a3e4f1dd","name":"delete1","password":"delete123","email":"delete@gmail.com","createdAt":"2023-11-19T08:19:282Z","__v":0}}
 
 	explain: we can delete a user via the user name, the user name is unique. The question including all the questions this user has asked and the following messages that this user has left and the messages that other users have left on 	this question will be deleted. At the same time, the past comments this user has left on other questions will also be deleted.
 

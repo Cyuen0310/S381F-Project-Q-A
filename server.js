@@ -14,9 +14,14 @@ const questionRouter = require("./routes/question");
 
 const port = process.env.PORT || 8000; 
 const app = express();
+const bodyParser = require('body-parser');
+const ObjectId = mongoose.Types.ObjectId;
+const Joi = require('joi');
+const slugify = require('slugify');
+
 
 connectdb();
-
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
@@ -74,3 +79,345 @@ app.use("/resetPassword", loginRouter);
 app.use("/register", registerRouter);
 
 app.listen(port, () => console.info(`Server started on port ${port}`));
+function generateSlug(title) {
+  return title.toLowerCase().replace(/\s+/g, '-');
+}
+// Path 1
+// GET Path get the username (from _name)
+// curl -X GET localhost:8000/username/getuser
+//
+app.get('/username/:username', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ' + req.body);
+  console.log('Username: ' + req.params.username);
+
+  const username = req.params.username;
+
+  User.findOne({ name: username })
+    .then(user => {
+      if (!user) {
+        res.status(404).send('User not found');
+      } else {
+        res.status(200).json(user);
+      }
+    })
+    .catch(error => {
+      res.status(500).send('An error occurred');
+    });
+});
+
+//Path 2
+//GET Path get the T and des without user (from _id)
+//curl -X GET localhost:8000/questionid/6558e067514ddbff44f80b6c
+//
+app.get('/questionid/:questionid', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ' + JSON.stringify(req.body));
+  console.log('db_id: ' + req.params.questionid);
+
+  const questionId = req.params.questionid;
+  
+  Question.findById(questionId)
+    .then(question => {
+         if (!question) {
+        res.status(404).send('Question not found');
+      } else {
+        res.status(200).json({question});
+      }
+      }
+    )
+});
+
+//Path 3
+//GET Path get the T and des without user (from _id)
+//curl -X GET localhost:8000/questioner/getuser
+//
+app.get('/questioner/:questioner', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ' + JSON.stringify(req.body));
+
+  const questionerName = req.params.questioner;
+
+  Question.find({ questionername: questionerName })
+    .then(questions => {
+      if (questions.length === 0) {
+        res.status(404).send('Questions not found for the specified questioner');
+      } else {
+        const questionData = questions.map(question => ({
+          title: question.title,
+          description: question.description
+        }));
+
+        res.status(200).json(questionData);
+      }
+    })
+    .catch(error => {
+      console.error('An error occurred:', error);
+      res.status(500).send('An error occurred');
+    });
+});
+
+//Path 4
+//POST Path for adding user
+//curl -H "Content-Type: application/json" -X POST -d '{"name": "addnewuser","password":"12345678910","email":"add@gamil.com"}' localhost:8000/users
+//{"name":"addnewuser","password":"12345678910","email":"add@gamil.com", "_id":"6558e2d64adf1e08c66a17cd","createdAt":"2023-11-18T16:14:14.700Z","__v":0}
+app.post('/users', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ' + JSON.stringify(req.body));
+
+  const { name, password, email } = req.body;
+
+  User.findOne({ name: name })
+    .then(existingUser => {
+      if (existingUser) {
+        res.status(409).send('Username already exists');
+      } else {
+        const newUser = new User({ name, password ,email});
+        newUser.save()
+          .then(savedUser => {
+            res.status(201).json(savedUser);
+          })
+          .catch(error => {
+            res.status(500).send('An error occurred');
+          });
+      }
+    })
+    .catch(error => {
+      res.status(500).send('An error occurred');
+    });
+});
+
+//Path 5
+// delete user by user name
+//curl -X DELETE localhost:8000/users/delet1
+//User and associated data deleted successfully
+app.delete('/users/:username', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ', req.body);
+
+  const username = req.params.username;
+
+  // Find the user by username and remove it
+  User.findOneAndDelete({ name: username })
+    .then(deletedUser => {
+      if (!deletedUser) {
+        res.status(404).send('User not found');
+      } else {
+        // Find all the questions associated with the user
+        Question.find({ questionername: username })
+          .then(questions => {
+            // Delete all the questions and associated comments
+            const questionIds = questions.map(question => question._id);
+
+            // Delete comments associated with the questions
+            Comment.deleteMany({ questionid: { $in: questionIds } })
+              .then(() => {
+                // Delete the questions
+                Question.deleteMany({ _id: { $in: questionIds } })
+                  .then(() => {
+                    res.status(200).send('User and associated data deleted successfully');
+                  })
+                  .catch(err => {
+                    console.error(err);
+                    res.status(500).send('Internal Server Error');
+                  });
+              })
+              .catch(err => {
+                console.error(err);
+                res.status(500).send('Internal Server Error');
+              });
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+          });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+
+// Path 6
+// DELETE Path for deleting comment
+// curl -X DELETE localhost:8000/commentid/6558e4ee4adf1e08c66a182c
+//Comment deleted successfully
+app.delete('/commentid/:commentid', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ', req.body);
+  console.log('commentid: ' + req.params.commentid);
+
+  const commentId = req.params.commentid;
+
+  // Find the comment by its ID and remove it
+  Comment.findByIdAndDelete(commentId)
+    .then(deletedComment => {
+      if (!deletedComment) {
+        res.status(404).send('Comment not found');
+      } else {
+        // Find the question associated with the comment
+        Question.findOneAndUpdate(
+          { comments: commentId },
+          { $pull: { comments: commentId } },
+          { new: true }
+        )
+          .then(updatedQuestion => {
+            if (!updatedQuestion) {
+              res.status(404).send('Question not found');
+            } else {
+              res.status(200).send('Comment deleted successfully');
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+          });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+
+
+//Path 7
+// delete the question with id
+//curl -X DELETE localhost:8000/questionid/6558e4514adf1e08c66a180b
+//Question and associated data deleted successfully
+app.delete('/questionid/:questionId', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ', req.body);
+
+  const questionId = req.params.questionId;
+
+  // Delete the question
+  Question.findOneAndDelete({ _id: questionId })
+    .then(deletedQuestion => {
+      if (!deletedQuestion) {
+        res.status(404).send('Question not found');
+      } else {
+        // Delete comments associated with the question
+        Comment.deleteMany({ questionid: questionId })
+          .then(() => {
+            res.status(200).send('Question and associated data deleted successfully');
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+          });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+//Path 8
+//PUT path to update name,password,updatetime from _id
+//curl -H "Content-Type: application/json" -X PUT -d '{"name": "afterupdat", "password": "123456789101112","email":"au@gmail.com"}' localhost:8000/userid/6558e6f8bbc150f255de67b2
+
+app.put('/userid/:userid', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ' + JSON.stringify(req.body));
+  console.log('user_id: ' + req.params.userid);
+  
+  const userId = req.params.userid;
+  const updatedFields = {
+    name: req.body.name,
+    password: req.body.password,
+    email: req.body.email
+  };
+
+  User.findByIdAndUpdate(userId, updatedFields, { new: true })
+    .then(updatedUser => {
+      if (!updatedUser) {
+        res.status(404).send('User not found');
+      } else {
+        // Update user name in associated questions
+        Question.updateMany({ questioner: userId }, { questionername: updatedFields.name })
+          .then(() => {
+            // Update user name in associated comments
+            return Comment.updateMany({ respondent: userId }, { respondentname: updatedFields.name });
+          })
+          .then(() => {
+            res.status(200).json(updatedUser);
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+          });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+
+//Path 9
+//PUT path to update the title and description
+//curl -H "Content-Type: application/json" -X PUT -d '{"title": "NewQuestion123", "description": "123"}' localhost:8000/questionid/6558e7eabbc150f255de67cf
+
+app.put('/questionid/:questionid', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ' + JSON.stringify(req.body));
+  console.log('Question_id: ' + req.params.questionid);
+  
+  const questionId = req.params.questionid;
+
+  // Generate slug from the new title
+  const newSlug = generateSlug(req.body.title);
+
+  // Update the request body to include the new slug
+  req.body.slug = newSlug;
+
+  // Find the question by its ID
+  Question.findByIdAndUpdate(questionId, req.body, { new: true })
+    .then(updatedQuestion => {
+      if (!updatedQuestion) {
+        res.status(404).send('Question not found');
+      } else {
+        res.status(200).json(updatedQuestion);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
+//Path 10
+//PUT Path to upadte the comment form the id
+//curl -H "Content-Type: application/json" -X PUT -d '{"comment": "Updated Comment"}' localhost:8000/commentid/6558e7efbbc150f255de67d4
+
+app.put('/commentid/:commentid', function(req, res) {
+  console.log('Incoming request: ' + req.method);
+  console.log('Path: ' + req.path);
+  console.log('Request body: ' + JSON.stringify(req.body));
+  console.log('Comment_id: ' + req.params.commentid);
+  
+  const commentId = req.params.commentid;
+
+  Comment.findByIdAndUpdate(commentId, req.body, { new: true })
+    .then(updatedComment => {
+      if (!updatedComment) {
+        res.status(404).send('Comment not found');
+      } else {
+        res.status(200).json(updatedComment);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    });
+});

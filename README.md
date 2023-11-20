@@ -35,9 +35,9 @@ To run at own device, follow these steps:
   ```
 	sudo npm install -g nodemon
   ```
-4. Enter your MangoDB link in ```db.js``` at server folder.
+4. Enter your MongoDB link in ```db.js``` at the server folder.
   ```
-	const uri = "Enter your MangoDB connect link";
+	const uri = "Enter your MongoDB connect link";
   ```
 5. Run the Platform.
   ```
@@ -46,9 +46,9 @@ To run at own device, follow these steps:
  *******************************************
 # Register
 
-To registered a account of Q&A platform, follow these steps:
+To register a account of the Q&A platform, follow these steps:
 
-1. Click on the "Register" button at Login page.
+1. Click on the "Register" button at the Login page.
 2. Fill in the non-registered username, password and email.
 	> Username: The username should be unique.
  
@@ -56,7 +56,7 @@ To registered a account of Q&A platform, follow these steps:
   
  	> Password: The password should have a minimum length of 8 characters and a maximum length of 20 characters.
  
-3. Click on the "Register" button to create account.
+3. Click on the "Register" button to create an account.
 4. You will be redirected to the login page.
 5. Verify that the account has been create using login.
  *******************************************
@@ -84,7 +84,7 @@ To logout the account, follow these steps:
 
 1. Back to main page.
 2. Click on the "Logout" button.
-3. Valid that the cockie of login session has been clean.
+3. Valid that the cookie of login session has been clean.
 
 ********************************************
 # CRUD service

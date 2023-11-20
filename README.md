@@ -23,12 +23,10 @@ In this project, we implement a Question and answer platform using the MongoDB, 
 
 To run at own device, follow these steps:
 
-1. Clone the repo.
+1. Clone the repo. (press F1 if you using vscode)
   ```
 	git clone https://github.com/Cyuen0310/Q-A.git
   ```
-
-	> press F1 if you using vscode
 2. Installing Platform Dependencies.
   ```
 	npm install

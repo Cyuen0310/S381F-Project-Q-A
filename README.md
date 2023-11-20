@@ -35,11 +35,7 @@ To run at own device, follow these steps:
   ```
 	sudo npm install -g nodemon
   ```
-4. Enter your MongoDB link in ```db.js``` at the server folder.
-  ```
-	const uri = "Enter your MongoDB connect link";
-  ```
-5. Run the Platform.
+4. Run the Platform.
   ```
 	npm start
   ```

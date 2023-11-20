@@ -27,6 +27,7 @@ To run at own device, follow these steps:
   ```
 	git clone https://github.com/Cyuen0310/Q-A.git
   ```
+
 	> press F1 if you using vscode
 2. Installing Platform Dependencies.
   ```

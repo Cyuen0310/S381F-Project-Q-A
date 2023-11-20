@@ -26,7 +26,8 @@ To run at own device, follow these steps:
 1. Clone the repo.
   ```
 	git clone https://github.com/Cyuen0310/Q-A.git
-  ``` 
+  ```
+	> press F1 if you using vscode
 2. Installing Platform Dependencies.
   ```
 	npm install
@@ -46,11 +47,11 @@ To run at own device, follow these steps:
  *******************************************
 # Register
 
-To register a account of the Q&A platform, follow these steps:
+To register an account of the Q&A platform, follow these steps:
 
-1. Click on the "Register" button at the Login page.
+1. Click on the "Register" button on the Login page.
 2. Fill in the non-registered username, password and email.
-	> Username: The username should be unique.
+	> Username: The username should be unique and have a length of 4 to 10 characters.
  
  	> Email: The email should be unique.
   
@@ -61,7 +62,7 @@ To register a account of the Q&A platform, follow these steps:
 5. Verify that the account has been create using login.
  *******************************************
 # Login
-To login the Q&A platform, follow these steps:
+To log into the Q&A platform, follow these steps:
 
 1. Go to the Login page.
 2. Fill in the registered username and password.
@@ -70,6 +71,7 @@ To login the Q&A platform, follow these steps:
 3. Click on the "Login" button.
 4. Verify that the account is valid when logging in.
    	>If log in successfully, you will be redirected to the main page that shows the recently asked questions.
+    	>If the username or password is wrong, it will be rejected to the main page. You need to type it again.
 
 Default account:
 
@@ -83,9 +85,9 @@ Default account:
 # Logout
 To logout the account, follow these steps:
 
-1. Back to main page.
+1. Back to the main page.
 2. Click on the "Logout" button.
-3. Valid that the cookie of login session has been clean.
+3. Valid that the cookie of the login session has been clean.
 
 ********************************************
 # CRUD service
@@ -93,7 +95,7 @@ For some of the restful CRUD services, login should be done first.
 ## Creating a Question
 To create a new question, follow these steps:
 
-1. Click on the "Ask question" button.
+1. Click on the "Ask Question" button.
 2.  Fill in the title and description of your question. 
 	> Title: The title should be unique. You cannot have multiple questions with the same title.
 

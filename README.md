@@ -69,6 +69,7 @@ To login the Q&A platform, follow these steps:
  
 3. Click on the "Login" button.
 4. Verify that the account is valid when logging in.
+   	>If log in successfully, you will be redirected to the main page that shows the recently asked questions.
 
 Default account:
 

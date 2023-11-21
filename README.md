@@ -31,19 +31,19 @@ git clone https://github.com/Cyuen0310/S381F-Project-Q-A.git
   ```
   cd S381F-Project-Q-A
   ```
-To avoid any error, we suggest you should update the node.js to the latest version of LTS first, to update the version:
+3. To avoid any error, we suggest you should update the Node.js to the latest version of LTS before installing the dependencies, to update the version:
 ```
 nvm install --lts
 ```
-3. Installing Platform Dependencies
+4. Installing Platform Dependencies
   ```
 npm install
   ```
-4. Reinstalling nodemon.
+5. Reinstalling nodemon.
   ```
 sudo npm install -g nodemon
   ```
-5. Run the Platform.
+6. Run the Platform.
   ```
 npm start
   ```

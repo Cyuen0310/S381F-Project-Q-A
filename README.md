@@ -27,15 +27,19 @@ To run at own device, follow these steps:
   ```
 	git clone https://github.com/Cyuen0310/Q-A.git
   ```
-2. Installing Platform Dependencies.
+2. Change directory to the file path
+  ```
+        cd \Q-A
+  ```
+3. Installing Platform Dependencies
   ```
 	npm install
   ```
-3. Reinstalling nodemon.
+4. Reinstalling nodemon.
   ```
 	sudo npm install -g nodemon
   ```
-4. Run the Platform.
+5. Run the Platform.
   ```
 	npm start
   ```

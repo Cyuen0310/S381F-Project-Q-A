@@ -25,27 +25,27 @@ To run at own device, follow these steps:
 
 1. Clone the repo.
   ```
-	git clone https://github.com/Cyuen0310/S381F-Project-Q-A.git
+git clone https://github.com/Cyuen0310/S381F-Project-Q-A.git
   ```
 2. Change directory to the file path
   ```
-        cd S381F-Project-Q-A
+  cd S381F-Project-Q-A
   ```
 3. Installing Platform Dependencies
   ```
-	npm install
+npm install
   ```
 4. Reinstalling nodemon.
   ```
-	sudo npm install -g nodemon
+sudo npm install -g nodemon
   ```
 5. Run the Platform.
   ```
-	npm start
+npm start
   ```
 To avoid any error, we suggest you should update the node.js to the latest version of LTS first, to update the version:
 ```
-    nvm install --lts
+nvm install --lts
 ```
 
  *******************************************

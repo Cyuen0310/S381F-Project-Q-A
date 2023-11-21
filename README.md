@@ -25,7 +25,7 @@ To run at own device, follow these steps:
 
 1. Clone the repo.
   ```
-	git clone https://github.com/Cyuen0310/Q-A.git
+	git clone https://github.com/Cyuen0310/S381F-Project-Q-A.git
   ```
 2. Change directory to the file path
   ```

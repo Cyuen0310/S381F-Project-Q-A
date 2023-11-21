@@ -29,7 +29,7 @@ To run at own device, follow these steps:
   ```
 2. Change directory to the file path
   ```
-        cd \Q-A
+  cd \Q-A
   ```
 3. Installing Platform Dependencies
   ```

@@ -29,7 +29,7 @@ To run at own device, follow these steps:
   ```
 2. Change directory to the file path
   ```
-    cd \Q-A
+    cd \Path\S381F-Project-Q-A
   ```
 3. Installing Platform Dependencies
   ```

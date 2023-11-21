@@ -29,7 +29,7 @@ To run at own device, follow these steps:
   ```
 2. Change directory to the file path
   ```
-    cd \Path\S381F-Project-Q-A
+  	cd S381F-Project-Q-A
   ```
 3. Installing Platform Dependencies
   ```
@@ -43,6 +43,11 @@ To run at own device, follow these steps:
   ```
 	npm start
   ```
+To avoid any error, we suggest you should update the node.js to the latest version of LTS first, to update the version:
+```
+	nvm install --lts
+```
+
  *******************************************
 # Register
 
